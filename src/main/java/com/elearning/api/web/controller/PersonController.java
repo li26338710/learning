@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.elearning.api.dao.po.Person;
-import com.elearning.api.service.impl.PersonService;
+import com.elearning.api.service.PersonService;
 
 @RestController
 public class PersonController {

@@ -29,4 +29,5 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web-services')
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile 'com.h2database:h2:1.4.192'
 }
