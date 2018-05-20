@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.elearning.api.dao.AuthorMapper" >
+  <resultMap id="BaseResultMap" type="com.elearning.api.dao.po.Author" >
+    <id column="ID_AUTHOR" property="idAuthor" jdbcType="INTEGER" />
+    <result column="AU_NAME" property="auName" jdbcType="VARCHAR" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="CREATEUSER" property="createuser" jdbcType="VARCHAR" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="UPDATEUSER" property="updateuser" jdbcType="VARCHAR" />
+    <result column="IS_ACTIVE" property="isActive" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID_AUTHOR, AU_NAME, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER, IS_ACTIVE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.elearning.api.dao.po.AuthorExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_author
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_author
+    where ID_AUTHOR = #{idAuthor,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_author
+    where ID_AUTHOR = #{idAuthor,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.elearning.api.dao.po.AuthorExample" >
+    delete from t_author
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.elearning.api.dao.po.Author" >
+    insert into t_author (ID_AUTHOR, AU_NAME, CREATETIME, 
+      CREATEUSER, UPDATETIME, UPDATEUSER, 
+      IS_ACTIVE)
+    values (#{idAuthor,jdbcType=INTEGER}, #{auName,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{createuser,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, #{updateuser,jdbcType=VARCHAR}, 
+      #{isActive,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.elearning.api.dao.po.Author" >
+    insert into t_author
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="idAuthor != null" >
+        ID_AUTHOR,
+      </if>
+      <if test="auName != null" >
+        AU_NAME,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+      <if test="createuser != null" >
+        CREATEUSER,
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME,
+      </if>
+      <if test="updateuser != null" >
+        UPDATEUSER,
+      </if>
+      <if test="isActive != null" >
+        IS_ACTIVE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="idAuthor != null" >
+        #{idAuthor,jdbcType=INTEGER},
+      </if>
+      <if test="auName != null" >
+        #{auName,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null" >
+        #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null" >
+        #{updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.elearning.api.dao.po.AuthorExample" resultType="java.lang.Integer" >
+    select count(*) from t_author
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_author
+    <set >
+      <if test="record.idAuthor != null" >
+        ID_AUTHOR = #{record.idAuthor,jdbcType=INTEGER},
+      </if>
+      <if test="record.auName != null" >
+        AU_NAME = #{record.auName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createuser != null" >
+        CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatetime != null" >
+        UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateuser != null" >
+        UPDATEUSER = #{record.updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isActive != null" >
+        IS_ACTIVE = #{record.isActive,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_author
+    set ID_AUTHOR = #{record.idAuthor,jdbcType=INTEGER},
+      AU_NAME = #{record.auName,jdbcType=VARCHAR},
+      CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
+      UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
+      UPDATEUSER = #{record.updateuser,jdbcType=VARCHAR},
+      IS_ACTIVE = #{record.isActive,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.elearning.api.dao.po.Author" >
+    update t_author
+    <set >
+      <if test="auName != null" >
+        AU_NAME = #{auName,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null" >
+        CREATEUSER = #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null" >
+        UPDATEUSER = #{updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="isActive != null" >
+        IS_ACTIVE = #{isActive,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID_AUTHOR = #{idAuthor,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.elearning.api.dao.po.Author" >
+    update t_author
+    set AU_NAME = #{auName,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      CREATEUSER = #{createuser,jdbcType=VARCHAR},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      UPDATEUSER = #{updateuser,jdbcType=VARCHAR},
+      IS_ACTIVE = #{isActive,jdbcType=INTEGER}
+    where ID_AUTHOR = #{idAuthor,jdbcType=INTEGER}
+  </update>
+</mapper>

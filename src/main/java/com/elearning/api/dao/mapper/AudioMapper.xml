@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.elearning.api.dao.AudioMapper" >
+  <resultMap id="BaseResultMap" type="com.elearning.api.dao.po.Audio" >
+    <id column="ID_AUDIO" property="idAudio" jdbcType="INTEGER" />
+    <id column="IS_ACTIVE" property="isActive" jdbcType="INTEGER" />
+    <result column="ID_CATEGORY" property="idCategory" jdbcType="INTEGER" />
+    <result column="ID_AUTHOR" property="idAuthor" jdbcType="INTEGER" />
+    <result column="ID_SOURCE" property="idSource" jdbcType="INTEGER" />
+    <result column="A_NAME" property="aName" jdbcType="VARCHAR" />
+    <result column="A_E_NAME" property="aEName" jdbcType="VARCHAR" />
+    <result column="A_FILE_PATH" property="aFilePath" jdbcType="VARCHAR" />
+    <result column="A_SIZE" property="aSize" jdbcType="DOUBLE" />
+    <result column="A_RECOMMEND" property="aRecommend" jdbcType="VARCHAR" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="CREATEUSER" property="createuser" jdbcType="VARCHAR" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="UPDATEUSER" property="updateuser" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID_AUDIO, IS_ACTIVE, ID_CATEGORY, ID_AUTHOR, ID_SOURCE, A_NAME, A_E_NAME, A_FILE_PATH, 
+    A_SIZE, A_RECOMMEND, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.elearning.api.dao.po.AudioExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_audio
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.elearning.api.dao.po.AudioKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_audio
+    where ID_AUDIO = #{idAudio,jdbcType=INTEGER}
+      and IS_ACTIVE = #{isActive,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.elearning.api.dao.po.AudioKey" >
+    delete from t_audio
+    where ID_AUDIO = #{idAudio,jdbcType=INTEGER}
+      and IS_ACTIVE = #{isActive,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.elearning.api.dao.po.AudioExample" >
+    delete from t_audio
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.elearning.api.dao.po.Audio" >
+    insert into t_audio (ID_AUDIO, IS_ACTIVE, ID_CATEGORY, 
+      ID_AUTHOR, ID_SOURCE, A_NAME, 
+      A_E_NAME, A_FILE_PATH, A_SIZE, 
+      A_RECOMMEND, CREATETIME, CREATEUSER, 
+      UPDATETIME, UPDATEUSER)
+    values (#{idAudio,jdbcType=INTEGER}, #{isActive,jdbcType=INTEGER}, #{idCategory,jdbcType=INTEGER}, 
+      #{idAuthor,jdbcType=INTEGER}, #{idSource,jdbcType=INTEGER}, #{aName,jdbcType=VARCHAR}, 
+      #{aEName,jdbcType=VARCHAR}, #{aFilePath,jdbcType=VARCHAR}, #{aSize,jdbcType=DOUBLE}, 
+      #{aRecommend,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{createuser,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{updateuser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.elearning.api.dao.po.Audio" >
+    insert into t_audio
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="idAudio != null" >
+        ID_AUDIO,
+      </if>
+      <if test="isActive != null" >
+        IS_ACTIVE,
+      </if>
+      <if test="idCategory != null" >
+        ID_CATEGORY,
+      </if>
+      <if test="idAuthor != null" >
+        ID_AUTHOR,
+      </if>
+      <if test="idSource != null" >
+        ID_SOURCE,
+      </if>
+      <if test="aName != null" >
+        A_NAME,
+      </if>
+      <if test="aEName != null" >
+        A_E_NAME,
+      </if>
+      <if test="aFilePath != null" >
+        A_FILE_PATH,
+      </if>
+      <if test="aSize != null" >
+        A_SIZE,
+      </if>
+      <if test="aRecommend != null" >
+        A_RECOMMEND,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+      <if test="createuser != null" >
+        CREATEUSER,
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME,
+      </if>
+      <if test="updateuser != null" >
+        UPDATEUSER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="idAudio != null" >
+        #{idAudio,jdbcType=INTEGER},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=INTEGER},
+      </if>
+      <if test="idCategory != null" >
+        #{idCategory,jdbcType=INTEGER},
+      </if>
+      <if test="idAuthor != null" >
+        #{idAuthor,jdbcType=INTEGER},
+      </if>
+      <if test="idSource != null" >
+        #{idSource,jdbcType=INTEGER},
+      </if>
+      <if test="aName != null" >
+        #{aName,jdbcType=VARCHAR},
+      </if>
+      <if test="aEName != null" >
+        #{aEName,jdbcType=VARCHAR},
+      </if>
+      <if test="aFilePath != null" >
+        #{aFilePath,jdbcType=VARCHAR},
+      </if>
+      <if test="aSize != null" >
+        #{aSize,jdbcType=DOUBLE},
+      </if>
+      <if test="aRecommend != null" >
+        #{aRecommend,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null" >
+        #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null" >
+        #{updateuser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.elearning.api.dao.po.AudioExample" resultType="java.lang.Integer" >
+    select count(*) from t_audio
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_audio
+    <set >
+      <if test="record.idAudio != null" >
+        ID_AUDIO = #{record.idAudio,jdbcType=INTEGER},
+      </if>
+      <if test="record.isActive != null" >
+        IS_ACTIVE = #{record.isActive,jdbcType=INTEGER},
+      </if>
+      <if test="record.idCategory != null" >
+        ID_CATEGORY = #{record.idCategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.idAuthor != null" >
+        ID_AUTHOR = #{record.idAuthor,jdbcType=INTEGER},
+      </if>
+      <if test="record.idSource != null" >
+        ID_SOURCE = #{record.idSource,jdbcType=INTEGER},
+      </if>
+      <if test="record.aName != null" >
+        A_NAME = #{record.aName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aEName != null" >
+        A_E_NAME = #{record.aEName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aFilePath != null" >
+        A_FILE_PATH = #{record.aFilePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aSize != null" >
+        A_SIZE = #{record.aSize,jdbcType=DOUBLE},
+      </if>
+      <if test="record.aRecommend != null" >
+        A_RECOMMEND = #{record.aRecommend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createuser != null" >
+        CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatetime != null" >
+        UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateuser != null" >
+        UPDATEUSER = #{record.updateuser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_audio
+    set ID_AUDIO = #{record.idAudio,jdbcType=INTEGER},
+      IS_ACTIVE = #{record.isActive,jdbcType=INTEGER},
+      ID_CATEGORY = #{record.idCategory,jdbcType=INTEGER},
+      ID_AUTHOR = #{record.idAuthor,jdbcType=INTEGER},
+      ID_SOURCE = #{record.idSource,jdbcType=INTEGER},
+      A_NAME = #{record.aName,jdbcType=VARCHAR},
+      A_E_NAME = #{record.aEName,jdbcType=VARCHAR},
+      A_FILE_PATH = #{record.aFilePath,jdbcType=VARCHAR},
+      A_SIZE = #{record.aSize,jdbcType=DOUBLE},
+      A_RECOMMEND = #{record.aRecommend,jdbcType=VARCHAR},
+      CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
+      UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
+      UPDATEUSER = #{record.updateuser,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.elearning.api.dao.po.Audio" >
+    update t_audio
+    <set >
+      <if test="idCategory != null" >
+        ID_CATEGORY = #{idCategory,jdbcType=INTEGER},
+      </if>
+      <if test="idAuthor != null" >
+        ID_AUTHOR = #{idAuthor,jdbcType=INTEGER},
+      </if>
+      <if test="idSource != null" >
+        ID_SOURCE = #{idSource,jdbcType=INTEGER},
+      </if>
+      <if test="aName != null" >
+        A_NAME = #{aName,jdbcType=VARCHAR},
+      </if>
+      <if test="aEName != null" >
+        A_E_NAME = #{aEName,jdbcType=VARCHAR},
+      </if>
+      <if test="aFilePath != null" >
+        A_FILE_PATH = #{aFilePath,jdbcType=VARCHAR},
+      </if>
+      <if test="aSize != null" >
+        A_SIZE = #{aSize,jdbcType=DOUBLE},
+      </if>
+      <if test="aRecommend != null" >
+        A_RECOMMEND = #{aRecommend,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null" >
+        CREATEUSER = #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuser != null" >
+        UPDATEUSER = #{updateuser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID_AUDIO = #{idAudio,jdbcType=INTEGER}
+      and IS_ACTIVE = #{isActive,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.elearning.api.dao.po.Audio" >
+    update t_audio
+    set ID_CATEGORY = #{idCategory,jdbcType=INTEGER},
+      ID_AUTHOR = #{idAuthor,jdbcType=INTEGER},
+      ID_SOURCE = #{idSource,jdbcType=INTEGER},
+      A_NAME = #{aName,jdbcType=VARCHAR},
+      A_E_NAME = #{aEName,jdbcType=VARCHAR},
+      A_FILE_PATH = #{aFilePath,jdbcType=VARCHAR},
+      A_SIZE = #{aSize,jdbcType=DOUBLE},
+      A_RECOMMEND = #{aRecommend,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      CREATEUSER = #{createuser,jdbcType=VARCHAR},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      UPDATEUSER = #{updateuser,jdbcType=VARCHAR}
+    where ID_AUDIO = #{idAudio,jdbcType=INTEGER}
+      and IS_ACTIVE = #{isActive,jdbcType=INTEGER}
+  </update>
+</mapper>
