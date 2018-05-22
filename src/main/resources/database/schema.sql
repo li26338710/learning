@@ -25,6 +25,7 @@ CREATE TABLE `t_audio` (
   `ID_SOURCE` int(11) DEFAULT NULL,
   `A_NAME` varchar(255) DEFAULT NULL,
   `A_E_NAME` varchar(255) DEFAULT NULL,
+  `A_COVER` varchar(255) DEFAULT NULL,
   `A_FILE_PATH` varchar(255) DEFAULT NULL,
   `A_SIZE` double DEFAULT '0',
   `A_RECOMMEND` varchar(45) DEFAULT NULL,
@@ -34,6 +35,7 @@ CREATE TABLE `t_audio` (
   `UPDATEUSER` varchar(45) DEFAULT NULL,
   `IS_ACTIVE` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`ID_AUDIO`,`IS_ACTIVE`));
+
 
   
   CREATE TABLE `t_author` (

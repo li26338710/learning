@@ -351,4 +351,37 @@
     where ID_AUDIO = #{idAudio,jdbcType=INTEGER}
       and IS_ACTIVE = #{isActive,jdbcType=INTEGER}
   </update>
+  <select id="getAudioList" >
+	SELECT 
+	    a.ID_Audio,
+	    a.A_NAME,
+	    a.A_E_NAME,
+	    a.A_COVER,
+	    a.A_FILE_PATH,
+	    a.A_SIZE,
+	    c.C_NAME,
+	    c.C_TYPE,
+	    au.AU_NAME,
+	    s.S_NAME,
+	    s.S_TYPE,
+	    s.S_YEAR
+	FROM
+	    t_audio AS a,
+	    t_category AS c,
+	    t_author AS au,
+	    t_source AS s
+	WHERE
+			a.id_category = c.id_category
+		AND a.id_author = au.id_author
+		AND a.id_source = s.id_source
+		<if test="idCategory != null" >
+		and a.id_category = #{idCategory,jdbcType=INTEGER}
+		</if>
+		<if test="idAuthor != null" >
+		AND a.id_author = #{idAuthor,jdbcType=INTEGER}
+		</if>
+		<if test="idSource != null" >
+		AND a.id_source = #{idSource,jdbcType=INTEGER}
+		</if>
+  </select>
 </mapper>

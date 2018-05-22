@@ -32,4 +32,6 @@ public interface AudioMapper {
     int updateByPrimaryKeySelective(Audio record);
 
     int updateByPrimaryKey(Audio record);
+    
+    List<Audio> getAudioList(@Param("idCategory") Integer idCategory,@Param("idAuthor") Integer idAuthor,@Param("idSource") Integer idSource);
 }

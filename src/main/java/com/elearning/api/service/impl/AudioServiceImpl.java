@@ -1,5 +1,7 @@
 package com.elearning.api.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,14 +16,11 @@ public class AudioServiceImpl implements AudioService{
 	private AudioMapper audioDao;
 
 	@Override
-	public Audio getAudio() {
+	public List<Audio> getAudio(Integer idCategory,Integer idAuthor,Integer idSource) {
 		
-		Audio a = new Audio();
-		a.setIdAudio(1);
-		a.setIsActive(1);
+		List<Audio> audioList = audioDao.getAudioList(idCategory, idAuthor, idSource);
 		
-		a = audioDao.selectByPrimaryKey(a);
-		return a;
+		return audioList;
 	}
 
 	@Override
