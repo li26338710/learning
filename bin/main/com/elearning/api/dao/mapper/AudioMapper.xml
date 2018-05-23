@@ -351,29 +351,36 @@
     where ID_AUDIO = #{idAudio,jdbcType=INTEGER}
       and IS_ACTIVE = #{isActive,jdbcType=INTEGER}
   </update>
-  <select id="getAudioList" >
+  <select id="getAudioList"  resultType="com.elearning.api.dao.po.Audio" >
 	SELECT 
-	    a.ID_Audio,
-	    a.A_NAME,
-	    a.A_E_NAME,
-	    a.A_COVER,
-	    a.A_FILE_PATH,
-	    a.A_SIZE,
-	    c.C_NAME,
-	    c.C_TYPE,
-	    au.AU_NAME,
-	    s.S_NAME,
-	    s.S_TYPE,
-	    s.S_YEAR
+	    a.ID_Audio as idAudio,
+	    a.ID_Category as idCategory,
+	    a.ID_Author as idAuthor,
+	    a.ID_source as idSource,
+	    a.A_NAME as aName,
+	    a.A_E_NAME as aEName,
+	    a.A_COVER as aCover,
+	    a.A_FILE_PATH as aFilePath,
+	    a.A_SIZE as aSize,
+	    c.C_NAME as cName,
+	    c.C_TYPE as cType,
+	    au.AU_NAME as auName,
+	    s.S_NAME as sName,
+	    s.S_TYPE as sType,
+	    s.S_YEAR as sYear
 	FROM
 	    t_audio AS a,
 	    t_category AS c,
 	    t_author AS au,
 	    t_source AS s
 	WHERE
-			a.id_category = c.id_category
-		AND a.id_author = au.id_author
-		AND a.id_source = s.id_source
+	    a.id_category = c.id_category
+        AND a.id_author = au.id_author
+        AND a.id_source = s.id_source
+        AND a.IS_ACTIVE = 1
+        AND c.IS_ACTIVE = 1
+        AND au.IS_ACTIVE = 1
+        AND s.IS_ACTIVE = 1
 		<if test="idCategory != null" >
 		and a.id_category = #{idCategory,jdbcType=INTEGER}
 		</if>

@@ -26,6 +26,14 @@ public class Audio extends AudioKey {
     private Date updatetime;
 
     private String updateuser;
+    private String aCover;
+    private String cName;
+    private String cType;
+    private String auName;
+    private String sName;
+    private String sType;
+    private String sYear;
+    
 
     public Integer getIdCategory() {
         return idCategory;
@@ -122,4 +130,61 @@ public class Audio extends AudioKey {
     public void setUpdateuser(String updateuser) {
         this.updateuser = updateuser;
     }
+
+	public String getaCover() {
+		return aCover;
+	}
+
+	public void setaCover(String aCover) {
+		this.aCover = aCover;
+	}
+
+	public String getcName() {
+		return cName;
+	}
+
+	public void setcName(String cName) {
+		this.cName = cName;
+	}
+
+	public String getcType() {
+		return cType;
+	}
+
+	public void setcType(String cType) {
+		this.cType = cType;
+	}
+
+	public String getAuName() {
+		return auName;
+	}
+
+	public void setAuName(String auName) {
+		this.auName = auName;
+	}
+
+	public String getsName() {
+		return sName;
+	}
+
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
+
+	public String getsType() {
+		return sType;
+	}
+
+	public void setsType(String sType) {
+		this.sType = sType;
+	}
+
+	public String getsYear() {
+		return sYear;
+	}
+
+	public void setsYear(String sYear) {
+		this.sYear = sYear;
+	}
+    
 }

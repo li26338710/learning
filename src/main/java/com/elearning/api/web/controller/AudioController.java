@@ -1,5 +1,7 @@
 package com.elearning.api.web.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +22,8 @@ public class AudioController {
     private AudioService audioService ;
     
 	 @RequestMapping( "/list" )
-     public Audio getAudio(){
-        return audioService.getAudio();
+     public List<Audio> getAudio(){
+        return audioService.getAudio(null , null , null);
     }
 	 
 	 @RequestMapping( "/list/{categoryId}" )
