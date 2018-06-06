@@ -11,14 +11,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileUtils {
 	
-    public static String upload(@RequestParam("file") MultipartFile file) {
+    public static String upload(@RequestParam("file") MultipartFile file) throws Exception {
     	String filePath = "";
         if (!file.isEmpty()) {
             try {
                 // 这里只是简单例子，文件直接输出到项目路径下。
                 // 实际项目中，文件需要输出到指定位置，需要在增加代码处理。
                 // 还有关于文件格式限制、文件大小限制，详见：中配置。
-            	filePath = CommonUtils.getTempFilePath(file.getName());
+            	filePath = CommonUtils.getTempFilePath(CommonUtils.randomString(16)+".mp3");
                 BufferedOutputStream out = new BufferedOutputStream(
                         new FileOutputStream(new File(filePath)));
                 out.write(file.getBytes());
@@ -41,7 +41,8 @@ public class FileUtils {
      * 新建目录 
      */  
     public static boolean newDir(String path) throws Exception {  
-        File file = new File(path);  
+    	File file = new File(path);
+        
         return file.mkdirs();//创建目录  
     }  
       

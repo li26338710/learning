@@ -1,11 +1,5 @@
 package com.elearning.api.web.controller;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.elearning.api.common.utils.FileUtils;
 
 @Controller
+@RequestMapping( "/recorder" )
 public class RecordFileUploadController {
 	
 	public static String FILE_TMP_PATH = "\\resource\\tmp";
@@ -36,6 +31,12 @@ public class RecordFileUploadController {
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
     public String upload(@RequestParam("file") MultipartFile file) {
-    	return FileUtils.upload(file);
+    	try {
+			return FileUtils.upload(file);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
     }
 }

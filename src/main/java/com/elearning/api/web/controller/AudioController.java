@@ -27,7 +27,7 @@ public class AudioController {
     }
 	 
 	 @RequestMapping( "/list/{categoryId}" )
-     public Audio getAudioByCategory(@PathVariable String categoryId){
+     public List<Audio> getAudioByCategory(@PathVariable Integer categoryId){
         return audioService.getAudio(categoryId);
     }
 }

@@ -9,6 +9,6 @@ public interface AudioService {
 	List<Audio> getAudio(Integer idCategory,Integer idAuthor,Integer idSource);
 
 
-	Audio getAudio(String categoryId);
+	List<Audio> getAudio(Integer categoryId);
 
 }

@@ -24,9 +24,10 @@ public class AudioServiceImpl implements AudioService{
 	}
 
 	@Override
-	public Audio getAudio(String categoryId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Audio>  getAudio(Integer categoryId) {
+		List<Audio> audioList = audioDao.getAudioList(categoryId, null, null);
+		
+		return audioList;
 	}
 
 }
