@@ -18,21 +18,21 @@ INSERT INTO `t_audio` (`ID_CATEGORY`, `ID_AUTHOR`, `ID_SOURCE`, `A_NAME`, `A_E_N
 INSERT INTO `t_audio` (`ID_CATEGORY`, `ID_AUTHOR`, `ID_SOURCE`, `A_NAME`, `A_E_NAME`, `A_COVER`, `A_FILE_PATH`, `A_SIZE`, `A_RECOMMEND`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`) VALUES ('2', '1', '1', 'test audio1', 'test audio3', 'http://localhost:8080/elearning/tmp/covers/ielts.png', 'http://localhost:8080/elearning/tmp/abc15.mp3', '2223', 'rec', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin');
 INSERT INTO `t_audio` (`ID_CATEGORY`, `ID_AUTHOR`, `ID_SOURCE`, `A_NAME`, `A_E_NAME`, `A_COVER`, `A_FILE_PATH`, `A_SIZE`, `A_RECOMMEND`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`) VALUES ('2', '1', '2', 'test audio2', 'test audio4', 'http://localhost:8080/elearning/tmp/covers/ielts.png', 'http://localhost:8080/elearning/tmp/abc16.mp3', '2224', 'rec', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin');
 
-INSERT INTO `t_source` (`ID_SOURCE`, `S_YEAR`, `S_NAME`, `S_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('0', '2017', '托福', 'Eng', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
-INSERT INTO `t_source` (`ID_SOURCE`, `S_YEAR`, `S_NAME`, `S_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('1', '2018', '雅思', 'Eng', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
-INSERT INTO `t_source` (`ID_SOURCE`, `S_YEAR`, `S_NAME`, `S_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('2', '2018', '托福', 'Eng', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
-INSERT INTO `t_source` (`ID_SOURCE`, `S_YEAR`, `S_NAME`, `S_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('3', '2016', '雅思', 'Eng', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
-INSERT INTO `t_source` (`ID_SOURCE`, `S_YEAR`, `S_NAME`, `S_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('4', '2017', '雅思', 'Eng', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_source` (`S_YEAR`, `S_NAME`, `S_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('2017', '托福', 'Eng', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_source` (`S_YEAR`, `S_NAME`, `S_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('2018', '雅思', 'Eng', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_source` (`S_YEAR`, `S_NAME`, `S_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('2018', '托福', 'Eng', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_source` (`S_YEAR`, `S_NAME`, `S_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('2016', '雅思', 'Eng', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_source` (`S_YEAR`, `S_NAME`, `S_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('2017', '雅思', 'Eng', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
 
-INSERT INTO `t_author` (`ID_AUTHOR`, `AU_NAME`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('0', 'Junpeng', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
-INSERT INTO `t_author` (`ID_AUTHOR`, `AU_NAME`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('1', 'Junpeng1', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
-INSERT INTO `t_author` (`ID_AUTHOR`, `AU_NAME`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('2', 'Junpeng2', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
-INSERT INTO `t_author` (`ID_AUTHOR`, `AU_NAME`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('3', 'Junpeng3', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_author` (`AU_NAME`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('Junpeng', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_author` (`AU_NAME`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('Junpeng1', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_author` (`AU_NAME`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('Junpeng2', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_author` (`AU_NAME`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('Junpeng3', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
 
 
-INSERT INTO `t_category` (`ID_CATEGORY`, `C_NAME`, `C_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('0', 'Category0', 'Type-1', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
-INSERT INTO `t_category` (`ID_CATEGORY`, `C_NAME`, `C_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('1', 'Category1', 'Type-1', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
-INSERT INTO `t_category` (`ID_CATEGORY`, `C_NAME`, `C_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('2', 'Category2', 'Type-2', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
-INSERT INTO `t_category` (`ID_CATEGORY`, `C_NAME`, `C_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('3', 'Category3', 'Type-2', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
-INSERT INTO `t_category` (`ID_CATEGORY`, `C_NAME`, `C_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('4', 'Category4', 'Type-3', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_category` (`C_NAME`, `C_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('Category0', 'Type-1', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_category` (`C_NAME`, `C_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('Category1', 'Type-1', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_category` (`C_NAME`, `C_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('Category2', 'Type-2', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_category` (`C_NAME`, `C_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('Category3', 'Type-2', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
+INSERT INTO `t_category` (`C_NAME`, `C_TYPE`, `CREATETIME`, `CREATEUSER`, `UPDATETIME`, `UPDATEUSER`, `IS_ACTIVE`) VALUES ('Category4', 'Type-3', '2018-05-18 00:00:00', 'admin', '2018-05-18 00:00:00', 'admin', '1');
 
