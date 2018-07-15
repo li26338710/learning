@@ -1,6 +1,4 @@
 .gradle
-/build/
-
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
@@ -11,7 +9,7 @@
 .settings
 .springBeans
 .sts4-cache
-bin/
+[Bb]in/
 
 ### IntelliJ IDEA ###
 .idea
