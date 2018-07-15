@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class AudioExample {
+public class RecordingExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public AudioExample() {
+    public RecordingExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -105,643 +105,463 @@ public class AudioExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdAudioIsNull() {
-            addCriterion("ID_AUDIO is null");
+        public Criteria andIdRecordingIsNull() {
+            addCriterion("ID_RECORDING is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdAudioIsNotNull() {
-            addCriterion("ID_AUDIO is not null");
+        public Criteria andIdRecordingIsNotNull() {
+            addCriterion("ID_RECORDING is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdAudioEqualTo(Integer value) {
-            addCriterion("ID_AUDIO =", value, "idAudio");
+        public Criteria andIdRecordingEqualTo(Integer value) {
+            addCriterion("ID_RECORDING =", value, "idRecording");
             return (Criteria) this;
         }
 
-        public Criteria andIdAudioNotEqualTo(Integer value) {
-            addCriterion("ID_AUDIO <>", value, "idAudio");
+        public Criteria andIdRecordingNotEqualTo(Integer value) {
+            addCriterion("ID_RECORDING <>", value, "idRecording");
             return (Criteria) this;
         }
 
-        public Criteria andIdAudioGreaterThan(Integer value) {
-            addCriterion("ID_AUDIO >", value, "idAudio");
+        public Criteria andIdRecordingGreaterThan(Integer value) {
+            addCriterion("ID_RECORDING >", value, "idRecording");
             return (Criteria) this;
         }
 
-        public Criteria andIdAudioGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ID_AUDIO >=", value, "idAudio");
+        public Criteria andIdRecordingGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ID_RECORDING >=", value, "idRecording");
             return (Criteria) this;
         }
 
-        public Criteria andIdAudioLessThan(Integer value) {
-            addCriterion("ID_AUDIO <", value, "idAudio");
+        public Criteria andIdRecordingLessThan(Integer value) {
+            addCriterion("ID_RECORDING <", value, "idRecording");
             return (Criteria) this;
         }
 
-        public Criteria andIdAudioLessThanOrEqualTo(Integer value) {
-            addCriterion("ID_AUDIO <=", value, "idAudio");
+        public Criteria andIdRecordingLessThanOrEqualTo(Integer value) {
+            addCriterion("ID_RECORDING <=", value, "idRecording");
             return (Criteria) this;
         }
 
-        public Criteria andIdAudioIn(List<Integer> values) {
-            addCriterion("ID_AUDIO in", values, "idAudio");
+        public Criteria andIdRecordingIn(List<Integer> values) {
+            addCriterion("ID_RECORDING in", values, "idRecording");
             return (Criteria) this;
         }
 
-        public Criteria andIdAudioNotIn(List<Integer> values) {
-            addCriterion("ID_AUDIO not in", values, "idAudio");
+        public Criteria andIdRecordingNotIn(List<Integer> values) {
+            addCriterion("ID_RECORDING not in", values, "idRecording");
             return (Criteria) this;
         }
 
-        public Criteria andIdAudioBetween(Integer value1, Integer value2) {
-            addCriterion("ID_AUDIO between", value1, value2, "idAudio");
+        public Criteria andIdRecordingBetween(Integer value1, Integer value2) {
+            addCriterion("ID_RECORDING between", value1, value2, "idRecording");
             return (Criteria) this;
         }
 
-        public Criteria andIdAudioNotBetween(Integer value1, Integer value2) {
-            addCriterion("ID_AUDIO not between", value1, value2, "idAudio");
+        public Criteria andIdRecordingNotBetween(Integer value1, Integer value2) {
+            addCriterion("ID_RECORDING not between", value1, value2, "idRecording");
             return (Criteria) this;
         }
 
-        public Criteria andIdCategoryIsNull() {
-            addCriterion("ID_CATEGORY is null");
+        public Criteria andIdSubAudioIsNull() {
+            addCriterion("ID_SUB_AUDIO is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdCategoryIsNotNull() {
-            addCriterion("ID_CATEGORY is not null");
+        public Criteria andIdSubAudioIsNotNull() {
+            addCriterion("ID_SUB_AUDIO is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdCategoryEqualTo(Integer value) {
-            addCriterion("ID_CATEGORY =", value, "idCategory");
+        public Criteria andIdSubAudioEqualTo(Integer value) {
+            addCriterion("ID_SUB_AUDIO =", value, "idSubAudio");
             return (Criteria) this;
         }
 
-        public Criteria andIdCategoryNotEqualTo(Integer value) {
-            addCriterion("ID_CATEGORY <>", value, "idCategory");
+        public Criteria andIdSubAudioNotEqualTo(Integer value) {
+            addCriterion("ID_SUB_AUDIO <>", value, "idSubAudio");
             return (Criteria) this;
         }
 
-        public Criteria andIdCategoryGreaterThan(Integer value) {
-            addCriterion("ID_CATEGORY >", value, "idCategory");
+        public Criteria andIdSubAudioGreaterThan(Integer value) {
+            addCriterion("ID_SUB_AUDIO >", value, "idSubAudio");
             return (Criteria) this;
         }
 
-        public Criteria andIdCategoryGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ID_CATEGORY >=", value, "idCategory");
+        public Criteria andIdSubAudioGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ID_SUB_AUDIO >=", value, "idSubAudio");
             return (Criteria) this;
         }
 
-        public Criteria andIdCategoryLessThan(Integer value) {
-            addCriterion("ID_CATEGORY <", value, "idCategory");
+        public Criteria andIdSubAudioLessThan(Integer value) {
+            addCriterion("ID_SUB_AUDIO <", value, "idSubAudio");
             return (Criteria) this;
         }
 
-        public Criteria andIdCategoryLessThanOrEqualTo(Integer value) {
-            addCriterion("ID_CATEGORY <=", value, "idCategory");
+        public Criteria andIdSubAudioLessThanOrEqualTo(Integer value) {
+            addCriterion("ID_SUB_AUDIO <=", value, "idSubAudio");
             return (Criteria) this;
         }
 
-        public Criteria andIdCategoryIn(List<Integer> values) {
-            addCriterion("ID_CATEGORY in", values, "idCategory");
+        public Criteria andIdSubAudioIn(List<Integer> values) {
+            addCriterion("ID_SUB_AUDIO in", values, "idSubAudio");
             return (Criteria) this;
         }
 
-        public Criteria andIdCategoryNotIn(List<Integer> values) {
-            addCriterion("ID_CATEGORY not in", values, "idCategory");
+        public Criteria andIdSubAudioNotIn(List<Integer> values) {
+            addCriterion("ID_SUB_AUDIO not in", values, "idSubAudio");
             return (Criteria) this;
         }
 
-        public Criteria andIdCategoryBetween(Integer value1, Integer value2) {
-            addCriterion("ID_CATEGORY between", value1, value2, "idCategory");
+        public Criteria andIdSubAudioBetween(Integer value1, Integer value2) {
+            addCriterion("ID_SUB_AUDIO between", value1, value2, "idSubAudio");
             return (Criteria) this;
         }
 
-        public Criteria andIdCategoryNotBetween(Integer value1, Integer value2) {
-            addCriterion("ID_CATEGORY not between", value1, value2, "idCategory");
+        public Criteria andIdSubAudioNotBetween(Integer value1, Integer value2) {
+            addCriterion("ID_SUB_AUDIO not between", value1, value2, "idSubAudio");
             return (Criteria) this;
         }
 
-        public Criteria andIdAuthorIsNull() {
-            addCriterion("ID_AUTHOR is null");
+        public Criteria andIdUseridIsNull() {
+            addCriterion("ID_USERID is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdAuthorIsNotNull() {
-            addCriterion("ID_AUTHOR is not null");
+        public Criteria andIdUseridIsNotNull() {
+            addCriterion("ID_USERID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdAuthorEqualTo(Integer value) {
-            addCriterion("ID_AUTHOR =", value, "idAuthor");
+        public Criteria andIdUseridEqualTo(String value) {
+            addCriterion("ID_USERID =", value, "idUserid");
             return (Criteria) this;
         }
 
-        public Criteria andIdAuthorNotEqualTo(Integer value) {
-            addCriterion("ID_AUTHOR <>", value, "idAuthor");
+        public Criteria andIdUseridNotEqualTo(String value) {
+            addCriterion("ID_USERID <>", value, "idUserid");
             return (Criteria) this;
         }
 
-        public Criteria andIdAuthorGreaterThan(Integer value) {
-            addCriterion("ID_AUTHOR >", value, "idAuthor");
+        public Criteria andIdUseridGreaterThan(String value) {
+            addCriterion("ID_USERID >", value, "idUserid");
             return (Criteria) this;
         }
 
-        public Criteria andIdAuthorGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ID_AUTHOR >=", value, "idAuthor");
+        public Criteria andIdUseridGreaterThanOrEqualTo(String value) {
+            addCriterion("ID_USERID >=", value, "idUserid");
             return (Criteria) this;
         }
 
-        public Criteria andIdAuthorLessThan(Integer value) {
-            addCriterion("ID_AUTHOR <", value, "idAuthor");
+        public Criteria andIdUseridLessThan(String value) {
+            addCriterion("ID_USERID <", value, "idUserid");
             return (Criteria) this;
         }
 
-        public Criteria andIdAuthorLessThanOrEqualTo(Integer value) {
-            addCriterion("ID_AUTHOR <=", value, "idAuthor");
+        public Criteria andIdUseridLessThanOrEqualTo(String value) {
+            addCriterion("ID_USERID <=", value, "idUserid");
             return (Criteria) this;
         }
 
-        public Criteria andIdAuthorIn(List<Integer> values) {
-            addCriterion("ID_AUTHOR in", values, "idAuthor");
+        public Criteria andIdUseridLike(String value) {
+            addCriterion("ID_USERID like", value, "idUserid");
             return (Criteria) this;
         }
 
-        public Criteria andIdAuthorNotIn(List<Integer> values) {
-            addCriterion("ID_AUTHOR not in", values, "idAuthor");
+        public Criteria andIdUseridNotLike(String value) {
+            addCriterion("ID_USERID not like", value, "idUserid");
             return (Criteria) this;
         }
 
-        public Criteria andIdAuthorBetween(Integer value1, Integer value2) {
-            addCriterion("ID_AUTHOR between", value1, value2, "idAuthor");
+        public Criteria andIdUseridIn(List<String> values) {
+            addCriterion("ID_USERID in", values, "idUserid");
             return (Criteria) this;
         }
 
-        public Criteria andIdAuthorNotBetween(Integer value1, Integer value2) {
-            addCriterion("ID_AUTHOR not between", value1, value2, "idAuthor");
+        public Criteria andIdUseridNotIn(List<String> values) {
+            addCriterion("ID_USERID not in", values, "idUserid");
             return (Criteria) this;
         }
 
-        public Criteria andIdSourceIsNull() {
-            addCriterion("ID_SOURCE is null");
+        public Criteria andIdUseridBetween(String value1, String value2) {
+            addCriterion("ID_USERID between", value1, value2, "idUserid");
             return (Criteria) this;
         }
 
-        public Criteria andIdSourceIsNotNull() {
-            addCriterion("ID_SOURCE is not null");
+        public Criteria andIdUseridNotBetween(String value1, String value2) {
+            addCriterion("ID_USERID not between", value1, value2, "idUserid");
             return (Criteria) this;
         }
 
-        public Criteria andIdSourceEqualTo(Integer value) {
-            addCriterion("ID_SOURCE =", value, "idSource");
+        public Criteria andRRecordTimeIsNull() {
+            addCriterion("R_RECORD_TIME is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdSourceNotEqualTo(Integer value) {
-            addCriterion("ID_SOURCE <>", value, "idSource");
+        public Criteria andRRecordTimeIsNotNull() {
+            addCriterion("R_RECORD_TIME is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdSourceGreaterThan(Integer value) {
-            addCriterion("ID_SOURCE >", value, "idSource");
+        public Criteria andRRecordTimeEqualTo(Date value) {
+            addCriterion("R_RECORD_TIME =", value, "rRecordTime");
             return (Criteria) this;
         }
 
-        public Criteria andIdSourceGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ID_SOURCE >=", value, "idSource");
+        public Criteria andRRecordTimeNotEqualTo(Date value) {
+            addCriterion("R_RECORD_TIME <>", value, "rRecordTime");
             return (Criteria) this;
         }
 
-        public Criteria andIdSourceLessThan(Integer value) {
-            addCriterion("ID_SOURCE <", value, "idSource");
+        public Criteria andRRecordTimeGreaterThan(Date value) {
+            addCriterion("R_RECORD_TIME >", value, "rRecordTime");
             return (Criteria) this;
         }
 
-        public Criteria andIdSourceLessThanOrEqualTo(Integer value) {
-            addCriterion("ID_SOURCE <=", value, "idSource");
+        public Criteria andRRecordTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("R_RECORD_TIME >=", value, "rRecordTime");
             return (Criteria) this;
         }
 
-        public Criteria andIdSourceIn(List<Integer> values) {
-            addCriterion("ID_SOURCE in", values, "idSource");
+        public Criteria andRRecordTimeLessThan(Date value) {
+            addCriterion("R_RECORD_TIME <", value, "rRecordTime");
             return (Criteria) this;
         }
 
-        public Criteria andIdSourceNotIn(List<Integer> values) {
-            addCriterion("ID_SOURCE not in", values, "idSource");
+        public Criteria andRRecordTimeLessThanOrEqualTo(Date value) {
+            addCriterion("R_RECORD_TIME <=", value, "rRecordTime");
             return (Criteria) this;
         }
 
-        public Criteria andIdSourceBetween(Integer value1, Integer value2) {
-            addCriterion("ID_SOURCE between", value1, value2, "idSource");
+        public Criteria andRRecordTimeIn(List<Date> values) {
+            addCriterion("R_RECORD_TIME in", values, "rRecordTime");
             return (Criteria) this;
         }
 
-        public Criteria andIdSourceNotBetween(Integer value1, Integer value2) {
-            addCriterion("ID_SOURCE not between", value1, value2, "idSource");
+        public Criteria andRRecordTimeNotIn(List<Date> values) {
+            addCriterion("R_RECORD_TIME not in", values, "rRecordTime");
             return (Criteria) this;
         }
 
-        public Criteria andANameIsNull() {
-            addCriterion("A_NAME is null");
+        public Criteria andRRecordTimeBetween(Date value1, Date value2) {
+            addCriterion("R_RECORD_TIME between", value1, value2, "rRecordTime");
             return (Criteria) this;
         }
 
-        public Criteria andANameIsNotNull() {
-            addCriterion("A_NAME is not null");
+        public Criteria andRRecordTimeNotBetween(Date value1, Date value2) {
+            addCriterion("R_RECORD_TIME not between", value1, value2, "rRecordTime");
             return (Criteria) this;
         }
 
-        public Criteria andANameEqualTo(String value) {
-            addCriterion("A_NAME =", value, "aName");
+        public Criteria andRFileSizeIsNull() {
+            addCriterion("R_FILE_SIZE is null");
             return (Criteria) this;
         }
 
-        public Criteria andANameNotEqualTo(String value) {
-            addCriterion("A_NAME <>", value, "aName");
+        public Criteria andRFileSizeIsNotNull() {
+            addCriterion("R_FILE_SIZE is not null");
             return (Criteria) this;
         }
 
-        public Criteria andANameGreaterThan(String value) {
-            addCriterion("A_NAME >", value, "aName");
+        public Criteria andRFileSizeEqualTo(String value) {
+            addCriterion("R_FILE_SIZE =", value, "rFileSize");
             return (Criteria) this;
         }
 
-        public Criteria andANameGreaterThanOrEqualTo(String value) {
-            addCriterion("A_NAME >=", value, "aName");
+        public Criteria andRFileSizeNotEqualTo(String value) {
+            addCriterion("R_FILE_SIZE <>", value, "rFileSize");
             return (Criteria) this;
         }
 
-        public Criteria andANameLessThan(String value) {
-            addCriterion("A_NAME <", value, "aName");
+        public Criteria andRFileSizeGreaterThan(String value) {
+            addCriterion("R_FILE_SIZE >", value, "rFileSize");
             return (Criteria) this;
         }
 
-        public Criteria andANameLessThanOrEqualTo(String value) {
-            addCriterion("A_NAME <=", value, "aName");
+        public Criteria andRFileSizeGreaterThanOrEqualTo(String value) {
+            addCriterion("R_FILE_SIZE >=", value, "rFileSize");
             return (Criteria) this;
         }
 
-        public Criteria andANameLike(String value) {
-            addCriterion("A_NAME like", value, "aName");
+        public Criteria andRFileSizeLessThan(String value) {
+            addCriterion("R_FILE_SIZE <", value, "rFileSize");
             return (Criteria) this;
         }
 
-        public Criteria andANameNotLike(String value) {
-            addCriterion("A_NAME not like", value, "aName");
+        public Criteria andRFileSizeLessThanOrEqualTo(String value) {
+            addCriterion("R_FILE_SIZE <=", value, "rFileSize");
             return (Criteria) this;
         }
 
-        public Criteria andANameIn(List<String> values) {
-            addCriterion("A_NAME in", values, "aName");
+        public Criteria andRFileSizeLike(String value) {
+            addCriterion("R_FILE_SIZE like", value, "rFileSize");
             return (Criteria) this;
         }
 
-        public Criteria andANameNotIn(List<String> values) {
-            addCriterion("A_NAME not in", values, "aName");
+        public Criteria andRFileSizeNotLike(String value) {
+            addCriterion("R_FILE_SIZE not like", value, "rFileSize");
             return (Criteria) this;
         }
 
-        public Criteria andANameBetween(String value1, String value2) {
-            addCriterion("A_NAME between", value1, value2, "aName");
+        public Criteria andRFileSizeIn(List<String> values) {
+            addCriterion("R_FILE_SIZE in", values, "rFileSize");
             return (Criteria) this;
         }
 
-        public Criteria andANameNotBetween(String value1, String value2) {
-            addCriterion("A_NAME not between", value1, value2, "aName");
+        public Criteria andRFileSizeNotIn(List<String> values) {
+            addCriterion("R_FILE_SIZE not in", values, "rFileSize");
             return (Criteria) this;
         }
 
-        public Criteria andAENameIsNull() {
-            addCriterion("A_E_NAME is null");
+        public Criteria andRFileSizeBetween(String value1, String value2) {
+            addCriterion("R_FILE_SIZE between", value1, value2, "rFileSize");
             return (Criteria) this;
         }
 
-        public Criteria andAENameIsNotNull() {
-            addCriterion("A_E_NAME is not null");
+        public Criteria andRFileSizeNotBetween(String value1, String value2) {
+            addCriterion("R_FILE_SIZE not between", value1, value2, "rFileSize");
             return (Criteria) this;
         }
 
-        public Criteria andAENameEqualTo(String value) {
-            addCriterion("A_E_NAME =", value, "aEName");
+        public Criteria andRClientipIsNull() {
+            addCriterion("R_CLIENTIP is null");
             return (Criteria) this;
         }
 
-        public Criteria andAENameNotEqualTo(String value) {
-            addCriterion("A_E_NAME <>", value, "aEName");
+        public Criteria andRClientipIsNotNull() {
+            addCriterion("R_CLIENTIP is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAENameGreaterThan(String value) {
-            addCriterion("A_E_NAME >", value, "aEName");
+        public Criteria andRClientipEqualTo(String value) {
+            addCriterion("R_CLIENTIP =", value, "rClientip");
             return (Criteria) this;
         }
 
-        public Criteria andAENameGreaterThanOrEqualTo(String value) {
-            addCriterion("A_E_NAME >=", value, "aEName");
+        public Criteria andRClientipNotEqualTo(String value) {
+            addCriterion("R_CLIENTIP <>", value, "rClientip");
             return (Criteria) this;
         }
 
-        public Criteria andAENameLessThan(String value) {
-            addCriterion("A_E_NAME <", value, "aEName");
+        public Criteria andRClientipGreaterThan(String value) {
+            addCriterion("R_CLIENTIP >", value, "rClientip");
             return (Criteria) this;
         }
 
-        public Criteria andAENameLessThanOrEqualTo(String value) {
-            addCriterion("A_E_NAME <=", value, "aEName");
+        public Criteria andRClientipGreaterThanOrEqualTo(String value) {
+            addCriterion("R_CLIENTIP >=", value, "rClientip");
             return (Criteria) this;
         }
 
-        public Criteria andAENameLike(String value) {
-            addCriterion("A_E_NAME like", value, "aEName");
+        public Criteria andRClientipLessThan(String value) {
+            addCriterion("R_CLIENTIP <", value, "rClientip");
             return (Criteria) this;
         }
 
-        public Criteria andAENameNotLike(String value) {
-            addCriterion("A_E_NAME not like", value, "aEName");
+        public Criteria andRClientipLessThanOrEqualTo(String value) {
+            addCriterion("R_CLIENTIP <=", value, "rClientip");
             return (Criteria) this;
         }
 
-        public Criteria andAENameIn(List<String> values) {
-            addCriterion("A_E_NAME in", values, "aEName");
+        public Criteria andRClientipLike(String value) {
+            addCriterion("R_CLIENTIP like", value, "rClientip");
             return (Criteria) this;
         }
 
-        public Criteria andAENameNotIn(List<String> values) {
-            addCriterion("A_E_NAME not in", values, "aEName");
+        public Criteria andRClientipNotLike(String value) {
+            addCriterion("R_CLIENTIP not like", value, "rClientip");
             return (Criteria) this;
         }
 
-        public Criteria andAENameBetween(String value1, String value2) {
-            addCriterion("A_E_NAME between", value1, value2, "aEName");
+        public Criteria andRClientipIn(List<String> values) {
+            addCriterion("R_CLIENTIP in", values, "rClientip");
             return (Criteria) this;
         }
 
-        public Criteria andAENameNotBetween(String value1, String value2) {
-            addCriterion("A_E_NAME not between", value1, value2, "aEName");
+        public Criteria andRClientipNotIn(List<String> values) {
+            addCriterion("R_CLIENTIP not in", values, "rClientip");
             return (Criteria) this;
         }
 
-        public Criteria andACoverIsNull() {
-            addCriterion("A_COVER is null");
+        public Criteria andRClientipBetween(String value1, String value2) {
+            addCriterion("R_CLIENTIP between", value1, value2, "rClientip");
             return (Criteria) this;
         }
 
-        public Criteria andACoverIsNotNull() {
-            addCriterion("A_COVER is not null");
+        public Criteria andRClientipNotBetween(String value1, String value2) {
+            addCriterion("R_CLIENTIP not between", value1, value2, "rClientip");
             return (Criteria) this;
         }
 
-        public Criteria andACoverEqualTo(String value) {
-            addCriterion("A_COVER =", value, "aCover");
+        public Criteria andRClientappIsNull() {
+            addCriterion("R_CLIENTAPP is null");
             return (Criteria) this;
         }
 
-        public Criteria andACoverNotEqualTo(String value) {
-            addCriterion("A_COVER <>", value, "aCover");
+        public Criteria andRClientappIsNotNull() {
+            addCriterion("R_CLIENTAPP is not null");
             return (Criteria) this;
         }
 
-        public Criteria andACoverGreaterThan(String value) {
-            addCriterion("A_COVER >", value, "aCover");
+        public Criteria andRClientappEqualTo(String value) {
+            addCriterion("R_CLIENTAPP =", value, "rClientapp");
             return (Criteria) this;
         }
 
-        public Criteria andACoverGreaterThanOrEqualTo(String value) {
-            addCriterion("A_COVER >=", value, "aCover");
+        public Criteria andRClientappNotEqualTo(String value) {
+            addCriterion("R_CLIENTAPP <>", value, "rClientapp");
             return (Criteria) this;
         }
 
-        public Criteria andACoverLessThan(String value) {
-            addCriterion("A_COVER <", value, "aCover");
+        public Criteria andRClientappGreaterThan(String value) {
+            addCriterion("R_CLIENTAPP >", value, "rClientapp");
             return (Criteria) this;
         }
 
-        public Criteria andACoverLessThanOrEqualTo(String value) {
-            addCriterion("A_COVER <=", value, "aCover");
+        public Criteria andRClientappGreaterThanOrEqualTo(String value) {
+            addCriterion("R_CLIENTAPP >=", value, "rClientapp");
             return (Criteria) this;
         }
 
-        public Criteria andACoverLike(String value) {
-            addCriterion("A_COVER like", value, "aCover");
+        public Criteria andRClientappLessThan(String value) {
+            addCriterion("R_CLIENTAPP <", value, "rClientapp");
             return (Criteria) this;
         }
 
-        public Criteria andACoverNotLike(String value) {
-            addCriterion("A_COVER not like", value, "aCover");
+        public Criteria andRClientappLessThanOrEqualTo(String value) {
+            addCriterion("R_CLIENTAPP <=", value, "rClientapp");
             return (Criteria) this;
         }
 
-        public Criteria andACoverIn(List<String> values) {
-            addCriterion("A_COVER in", values, "aCover");
+        public Criteria andRClientappLike(String value) {
+            addCriterion("R_CLIENTAPP like", value, "rClientapp");
             return (Criteria) this;
         }
 
-        public Criteria andACoverNotIn(List<String> values) {
-            addCriterion("A_COVER not in", values, "aCover");
+        public Criteria andRClientappNotLike(String value) {
+            addCriterion("R_CLIENTAPP not like", value, "rClientapp");
             return (Criteria) this;
         }
 
-        public Criteria andACoverBetween(String value1, String value2) {
-            addCriterion("A_COVER between", value1, value2, "aCover");
+        public Criteria andRClientappIn(List<String> values) {
+            addCriterion("R_CLIENTAPP in", values, "rClientapp");
             return (Criteria) this;
         }
 
-        public Criteria andACoverNotBetween(String value1, String value2) {
-            addCriterion("A_COVER not between", value1, value2, "aCover");
+        public Criteria andRClientappNotIn(List<String> values) {
+            addCriterion("R_CLIENTAPP not in", values, "rClientapp");
             return (Criteria) this;
         }
 
-        public Criteria andATracksIsNull() {
-            addCriterion("A_TRACKS is null");
+        public Criteria andRClientappBetween(String value1, String value2) {
+            addCriterion("R_CLIENTAPP between", value1, value2, "rClientapp");
             return (Criteria) this;
         }
 
-        public Criteria andATracksIsNotNull() {
-            addCriterion("A_TRACKS is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andATracksEqualTo(Integer value) {
-            addCriterion("A_TRACKS =", value, "aTracks");
-            return (Criteria) this;
-        }
-
-        public Criteria andATracksNotEqualTo(Integer value) {
-            addCriterion("A_TRACKS <>", value, "aTracks");
-            return (Criteria) this;
-        }
-
-        public Criteria andATracksGreaterThan(Integer value) {
-            addCriterion("A_TRACKS >", value, "aTracks");
-            return (Criteria) this;
-        }
-
-        public Criteria andATracksGreaterThanOrEqualTo(Integer value) {
-            addCriterion("A_TRACKS >=", value, "aTracks");
-            return (Criteria) this;
-        }
-
-        public Criteria andATracksLessThan(Integer value) {
-            addCriterion("A_TRACKS <", value, "aTracks");
-            return (Criteria) this;
-        }
-
-        public Criteria andATracksLessThanOrEqualTo(Integer value) {
-            addCriterion("A_TRACKS <=", value, "aTracks");
-            return (Criteria) this;
-        }
-
-        public Criteria andATracksIn(List<Integer> values) {
-            addCriterion("A_TRACKS in", values, "aTracks");
-            return (Criteria) this;
-        }
-
-        public Criteria andATracksNotIn(List<Integer> values) {
-            addCriterion("A_TRACKS not in", values, "aTracks");
-            return (Criteria) this;
-        }
-
-        public Criteria andATracksBetween(Integer value1, Integer value2) {
-            addCriterion("A_TRACKS between", value1, value2, "aTracks");
-            return (Criteria) this;
-        }
-
-        public Criteria andATracksNotBetween(Integer value1, Integer value2) {
-            addCriterion("A_TRACKS not between", value1, value2, "aTracks");
-            return (Criteria) this;
-        }
-
-        public Criteria andASizeIsNull() {
-            addCriterion("A_SIZE is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andASizeIsNotNull() {
-            addCriterion("A_SIZE is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andASizeEqualTo(Double value) {
-            addCriterion("A_SIZE =", value, "aSize");
-            return (Criteria) this;
-        }
-
-        public Criteria andASizeNotEqualTo(Double value) {
-            addCriterion("A_SIZE <>", value, "aSize");
-            return (Criteria) this;
-        }
-
-        public Criteria andASizeGreaterThan(Double value) {
-            addCriterion("A_SIZE >", value, "aSize");
-            return (Criteria) this;
-        }
-
-        public Criteria andASizeGreaterThanOrEqualTo(Double value) {
-            addCriterion("A_SIZE >=", value, "aSize");
-            return (Criteria) this;
-        }
-
-        public Criteria andASizeLessThan(Double value) {
-            addCriterion("A_SIZE <", value, "aSize");
-            return (Criteria) this;
-        }
-
-        public Criteria andASizeLessThanOrEqualTo(Double value) {
-            addCriterion("A_SIZE <=", value, "aSize");
-            return (Criteria) this;
-        }
-
-        public Criteria andASizeIn(List<Double> values) {
-            addCriterion("A_SIZE in", values, "aSize");
-            return (Criteria) this;
-        }
-
-        public Criteria andASizeNotIn(List<Double> values) {
-            addCriterion("A_SIZE not in", values, "aSize");
-            return (Criteria) this;
-        }
-
-        public Criteria andASizeBetween(Double value1, Double value2) {
-            addCriterion("A_SIZE between", value1, value2, "aSize");
-            return (Criteria) this;
-        }
-
-        public Criteria andASizeNotBetween(Double value1, Double value2) {
-            addCriterion("A_SIZE not between", value1, value2, "aSize");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendIsNull() {
-            addCriterion("A_RECOMMEND is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendIsNotNull() {
-            addCriterion("A_RECOMMEND is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendEqualTo(String value) {
-            addCriterion("A_RECOMMEND =", value, "aRecommend");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendNotEqualTo(String value) {
-            addCriterion("A_RECOMMEND <>", value, "aRecommend");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendGreaterThan(String value) {
-            addCriterion("A_RECOMMEND >", value, "aRecommend");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendGreaterThanOrEqualTo(String value) {
-            addCriterion("A_RECOMMEND >=", value, "aRecommend");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendLessThan(String value) {
-            addCriterion("A_RECOMMEND <", value, "aRecommend");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendLessThanOrEqualTo(String value) {
-            addCriterion("A_RECOMMEND <=", value, "aRecommend");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendLike(String value) {
-            addCriterion("A_RECOMMEND like", value, "aRecommend");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendNotLike(String value) {
-            addCriterion("A_RECOMMEND not like", value, "aRecommend");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendIn(List<String> values) {
-            addCriterion("A_RECOMMEND in", values, "aRecommend");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendNotIn(List<String> values) {
-            addCriterion("A_RECOMMEND not in", values, "aRecommend");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendBetween(String value1, String value2) {
-            addCriterion("A_RECOMMEND between", value1, value2, "aRecommend");
-            return (Criteria) this;
-        }
-
-        public Criteria andARecommendNotBetween(String value1, String value2) {
-            addCriterion("A_RECOMMEND not between", value1, value2, "aRecommend");
+        public Criteria andRClientappNotBetween(String value1, String value2) {
+            addCriterion("R_CLIENTAPP not between", value1, value2, "rClientapp");
             return (Criteria) this;
         }
 

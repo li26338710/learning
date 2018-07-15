@@ -2,7 +2,9 @@ package com.elearning.api.dao.po;
 
 import java.util.Date;
 
-public class Audio extends AudioKey {
+public class Audio {
+    private Integer idAudio;
+
     private Integer idCategory;
 
     private Integer idAuthor;
@@ -13,7 +15,7 @@ public class Audio extends AudioKey {
 
     private String aEName;
 
-    private String aFilePath;
+    private Integer aTracks;
 
     private Double aSize;
 
@@ -33,7 +35,16 @@ public class Audio extends AudioKey {
     private String sName;
     private String sType;
     private String sYear;
-    
+
+    private Integer isActive;
+
+    public Integer getIdAudio() {
+        return idAudio;
+    }
+
+    public void setIdAudio(Integer idAudio) {
+        this.idAudio = idAudio;
+    }
 
     public Integer getIdCategory() {
         return idCategory;
@@ -75,12 +86,12 @@ public class Audio extends AudioKey {
         this.aEName = aEName;
     }
 
-    public String getaFilePath() {
-        return aFilePath;
+    public Integer getaTracks() {
+        return aTracks;
     }
 
-    public void setaFilePath(String aFilePath) {
-        this.aFilePath = aFilePath;
+    public void setaTracks(Integer aTracks) {
+        this.aTracks = aTracks;
     }
 
     public Double getaSize() {
@@ -186,5 +197,11 @@ public class Audio extends AudioKey {
 	public void setsYear(String sYear) {
 		this.sYear = sYear;
 	}
-    
+    public Integer getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Integer isActive) {
+        this.isActive = isActive;
+    }   
 }

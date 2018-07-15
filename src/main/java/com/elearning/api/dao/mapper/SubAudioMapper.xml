@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.elearning.api.dao.AudioMapper" >
-  <resultMap id="BaseResultMap" type="com.elearning.api.dao.po.Audio" >
-    <id column="ID_AUDIO" property="idAudio" jdbcType="INTEGER" />
-    <result column="ID_CATEGORY" property="idCategory" jdbcType="INTEGER" />
-    <result column="ID_AUTHOR" property="idAuthor" jdbcType="INTEGER" />
-    <result column="ID_SOURCE" property="idSource" jdbcType="INTEGER" />
-    <result column="A_NAME" property="aName" jdbcType="VARCHAR" />
-    <result column="A_E_NAME" property="aEName" jdbcType="VARCHAR" />
-    <result column="A_COVER" property="aCover" jdbcType="VARCHAR" />
-    <result column="A_TRACKS" property="aTracks" jdbcType="INTEGER" />
+<mapper namespace="com.elearning.api.dao.SubAudioMapper" >
+  <resultMap id="BaseResultMap" type="com.elearning.api.dao.po.SubAudio" >
+    <id column="ID_SUB_AUDIO" property="idSubAudio" jdbcType="INTEGER" />
+    <result column="ID_SUB_TYPE" property="idSubType" jdbcType="INTEGER" />
+    <result column="ID_SUB_ROLE" property="idSubRole" jdbcType="VARCHAR" />
+    <result column="ID_AUDIO" property="idAudio" jdbcType="INTEGER" />
+    <result column="ID_SUB_INDEX" property="idSubIndex" jdbcType="INTEGER" />
+    <result column="ID_SUB_LENGTH" property="idSubLength" jdbcType="INTEGER" />
+    <result column="A_FILE_PATH" property="aFilePath" jdbcType="VARCHAR" />
     <result column="A_SIZE" property="aSize" jdbcType="DOUBLE" />
     <result column="A_RECOMMEND" property="aRecommend" jdbcType="VARCHAR" />
     <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
@@ -77,17 +76,17 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ID_AUDIO, ID_CATEGORY, ID_AUTHOR, ID_SOURCE, A_NAME, A_E_NAME, A_COVER, A_TRACKS, 
+    ID_SUB_AUDIO, ID_SUB_TYPE, ID_SUB_ROLE, ID_AUDIO, ID_SUB_INDEX, ID_SUB_LENGTH, A_FILE_PATH, 
     A_SIZE, A_RECOMMEND, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER, IS_ACTIVE
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.elearning.api.dao.po.AudioExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.elearning.api.dao.po.SubAudioExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from t_audio
+    from t_sub_audio
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -98,59 +97,54 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from t_audio
-    where ID_AUDIO = #{idAudio,jdbcType=INTEGER}
+    from t_sub_audio
+    where ID_SUB_AUDIO = #{idSubAudio,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from t_audio
-    where ID_AUDIO = #{idAudio,jdbcType=INTEGER}
+    delete from t_sub_audio
+    where ID_SUB_AUDIO = #{idSubAudio,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.elearning.api.dao.po.AudioExample" >
-    delete from t_audio
+  <delete id="deleteByExample" parameterType="com.elearning.api.dao.po.SubAudioExample" >
+    delete from t_sub_audio
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.elearning.api.dao.po.Audio" >
-    insert into t_audio (ID_AUDIO, ID_CATEGORY, ID_AUTHOR, 
-      ID_SOURCE, A_NAME, A_E_NAME, 
-      A_COVER, A_TRACKS, A_SIZE, 
-      A_RECOMMEND, CREATETIME, CREATEUSER, 
-      UPDATETIME, UPDATEUSER, IS_ACTIVE
-      )
-    values (#{idAudio,jdbcType=INTEGER}, #{idCategory,jdbcType=INTEGER}, #{idAuthor,jdbcType=INTEGER}, 
-      #{idSource,jdbcType=INTEGER}, #{aName,jdbcType=VARCHAR}, #{aEName,jdbcType=VARCHAR}, 
-      #{aCover,jdbcType=VARCHAR}, #{aTracks,jdbcType=INTEGER}, #{aSize,jdbcType=DOUBLE}, 
-      #{aRecommend,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{createuser,jdbcType=VARCHAR}, 
-      #{updatetime,jdbcType=TIMESTAMP}, #{updateuser,jdbcType=VARCHAR}, #{isActive,jdbcType=INTEGER}
-      )
+  <insert id="insert" parameterType="com.elearning.api.dao.po.SubAudio" >
+    insert into t_sub_audio (ID_SUB_AUDIO, ID_SUB_TYPE, ID_SUB_ROLE, 
+      ID_AUDIO, ID_SUB_INDEX, ID_SUB_LENGTH, 
+      A_FILE_PATH, A_SIZE, A_RECOMMEND, 
+      CREATETIME, CREATEUSER, UPDATETIME, 
+      UPDATEUSER, IS_ACTIVE)
+    values (#{idSubAudio,jdbcType=INTEGER}, #{idSubType,jdbcType=INTEGER}, #{idSubRole,jdbcType=VARCHAR}, 
+      #{idAudio,jdbcType=INTEGER}, #{idSubIndex,jdbcType=INTEGER}, #{idSubLength,jdbcType=INTEGER}, 
+      #{aFilePath,jdbcType=VARCHAR}, #{aSize,jdbcType=DOUBLE}, #{aRecommend,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{createuser,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{updateuser,jdbcType=VARCHAR}, #{isActive,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.elearning.api.dao.po.Audio" >
-    insert into t_audio
+  <insert id="insertSelective" parameterType="com.elearning.api.dao.po.SubAudio" >
+    insert into t_sub_audio
     <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="idSubAudio != null" >
+        ID_SUB_AUDIO,
+      </if>
+      <if test="idSubType != null" >
+        ID_SUB_TYPE,
+      </if>
+      <if test="idSubRole != null" >
+        ID_SUB_ROLE,
+      </if>
       <if test="idAudio != null" >
         ID_AUDIO,
       </if>
-      <if test="idCategory != null" >
-        ID_CATEGORY,
+      <if test="idSubIndex != null" >
+        ID_SUB_INDEX,
       </if>
-      <if test="idAuthor != null" >
-        ID_AUTHOR,
+      <if test="idSubLength != null" >
+        ID_SUB_LENGTH,
       </if>
-      <if test="idSource != null" >
-        ID_SOURCE,
-      </if>
-      <if test="aName != null" >
-        A_NAME,
-      </if>
-      <if test="aEName != null" >
-        A_E_NAME,
-      </if>
-      <if test="aCover != null" >
-        A_COVER,
-      </if>
-      <if test="aTracks != null" >
-        A_TRACKS,
+      <if test="aFilePath != null" >
+        A_FILE_PATH,
       </if>
       <if test="aSize != null" >
         A_SIZE,
@@ -175,29 +169,26 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="idSubAudio != null" >
+        #{idSubAudio,jdbcType=INTEGER},
+      </if>
+      <if test="idSubType != null" >
+        #{idSubType,jdbcType=INTEGER},
+      </if>
+      <if test="idSubRole != null" >
+        #{idSubRole,jdbcType=VARCHAR},
+      </if>
       <if test="idAudio != null" >
         #{idAudio,jdbcType=INTEGER},
       </if>
-      <if test="idCategory != null" >
-        #{idCategory,jdbcType=INTEGER},
+      <if test="idSubIndex != null" >
+        #{idSubIndex,jdbcType=INTEGER},
       </if>
-      <if test="idAuthor != null" >
-        #{idAuthor,jdbcType=INTEGER},
+      <if test="idSubLength != null" >
+        #{idSubLength,jdbcType=INTEGER},
       </if>
-      <if test="idSource != null" >
-        #{idSource,jdbcType=INTEGER},
-      </if>
-      <if test="aName != null" >
-        #{aName,jdbcType=VARCHAR},
-      </if>
-      <if test="aEName != null" >
-        #{aEName,jdbcType=VARCHAR},
-      </if>
-      <if test="aCover != null" >
-        #{aCover,jdbcType=VARCHAR},
-      </if>
-      <if test="aTracks != null" >
-        #{aTracks,jdbcType=INTEGER},
+      <if test="aFilePath != null" >
+        #{aFilePath,jdbcType=VARCHAR},
       </if>
       <if test="aSize != null" >
         #{aSize,jdbcType=DOUBLE},
@@ -222,38 +213,35 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.elearning.api.dao.po.AudioExample" resultType="java.lang.Integer" >
-    select count(*) from t_audio
+  <select id="countByExample" parameterType="com.elearning.api.dao.po.SubAudioExample" resultType="java.lang.Integer" >
+    select count(*) from t_sub_audio
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update t_audio
+    update t_sub_audio
     <set >
+      <if test="record.idSubAudio != null" >
+        ID_SUB_AUDIO = #{record.idSubAudio,jdbcType=INTEGER},
+      </if>
+      <if test="record.idSubType != null" >
+        ID_SUB_TYPE = #{record.idSubType,jdbcType=INTEGER},
+      </if>
+      <if test="record.idSubRole != null" >
+        ID_SUB_ROLE = #{record.idSubRole,jdbcType=VARCHAR},
+      </if>
       <if test="record.idAudio != null" >
         ID_AUDIO = #{record.idAudio,jdbcType=INTEGER},
       </if>
-      <if test="record.idCategory != null" >
-        ID_CATEGORY = #{record.idCategory,jdbcType=INTEGER},
+      <if test="record.idSubIndex != null" >
+        ID_SUB_INDEX = #{record.idSubIndex,jdbcType=INTEGER},
       </if>
-      <if test="record.idAuthor != null" >
-        ID_AUTHOR = #{record.idAuthor,jdbcType=INTEGER},
+      <if test="record.idSubLength != null" >
+        ID_SUB_LENGTH = #{record.idSubLength,jdbcType=INTEGER},
       </if>
-      <if test="record.idSource != null" >
-        ID_SOURCE = #{record.idSource,jdbcType=INTEGER},
-      </if>
-      <if test="record.aName != null" >
-        A_NAME = #{record.aName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.aEName != null" >
-        A_E_NAME = #{record.aEName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.aCover != null" >
-        A_COVER = #{record.aCover,jdbcType=VARCHAR},
-      </if>
-      <if test="record.aTracks != null" >
-        A_TRACKS = #{record.aTracks,jdbcType=INTEGER},
+      <if test="record.aFilePath != null" >
+        A_FILE_PATH = #{record.aFilePath,jdbcType=VARCHAR},
       </if>
       <if test="record.aSize != null" >
         A_SIZE = #{record.aSize,jdbcType=DOUBLE},
@@ -282,15 +270,14 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update t_audio
-    set ID_AUDIO = #{record.idAudio,jdbcType=INTEGER},
-      ID_CATEGORY = #{record.idCategory,jdbcType=INTEGER},
-      ID_AUTHOR = #{record.idAuthor,jdbcType=INTEGER},
-      ID_SOURCE = #{record.idSource,jdbcType=INTEGER},
-      A_NAME = #{record.aName,jdbcType=VARCHAR},
-      A_E_NAME = #{record.aEName,jdbcType=VARCHAR},
-      A_COVER = #{record.aCover,jdbcType=VARCHAR},
-      A_TRACKS = #{record.aTracks,jdbcType=INTEGER},
+    update t_sub_audio
+    set ID_SUB_AUDIO = #{record.idSubAudio,jdbcType=INTEGER},
+      ID_SUB_TYPE = #{record.idSubType,jdbcType=INTEGER},
+      ID_SUB_ROLE = #{record.idSubRole,jdbcType=VARCHAR},
+      ID_AUDIO = #{record.idAudio,jdbcType=INTEGER},
+      ID_SUB_INDEX = #{record.idSubIndex,jdbcType=INTEGER},
+      ID_SUB_LENGTH = #{record.idSubLength,jdbcType=INTEGER},
+      A_FILE_PATH = #{record.aFilePath,jdbcType=VARCHAR},
       A_SIZE = #{record.aSize,jdbcType=DOUBLE},
       A_RECOMMEND = #{record.aRecommend,jdbcType=VARCHAR},
       CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
@@ -302,29 +289,26 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.elearning.api.dao.po.Audio" >
-    update t_audio
+  <update id="updateByPrimaryKeySelective" parameterType="com.elearning.api.dao.po.SubAudio" >
+    update t_sub_audio
     <set >
-      <if test="idCategory != null" >
-        ID_CATEGORY = #{idCategory,jdbcType=INTEGER},
+      <if test="idSubType != null" >
+        ID_SUB_TYPE = #{idSubType,jdbcType=INTEGER},
       </if>
-      <if test="idAuthor != null" >
-        ID_AUTHOR = #{idAuthor,jdbcType=INTEGER},
+      <if test="idSubRole != null" >
+        ID_SUB_ROLE = #{idSubRole,jdbcType=VARCHAR},
       </if>
-      <if test="idSource != null" >
-        ID_SOURCE = #{idSource,jdbcType=INTEGER},
+      <if test="idAudio != null" >
+        ID_AUDIO = #{idAudio,jdbcType=INTEGER},
       </if>
-      <if test="aName != null" >
-        A_NAME = #{aName,jdbcType=VARCHAR},
+      <if test="idSubIndex != null" >
+        ID_SUB_INDEX = #{idSubIndex,jdbcType=INTEGER},
       </if>
-      <if test="aEName != null" >
-        A_E_NAME = #{aEName,jdbcType=VARCHAR},
+      <if test="idSubLength != null" >
+        ID_SUB_LENGTH = #{idSubLength,jdbcType=INTEGER},
       </if>
-      <if test="aCover != null" >
-        A_COVER = #{aCover,jdbcType=VARCHAR},
-      </if>
-      <if test="aTracks != null" >
-        A_TRACKS = #{aTracks,jdbcType=INTEGER},
+      <if test="aFilePath != null" >
+        A_FILE_PATH = #{aFilePath,jdbcType=VARCHAR},
       </if>
       <if test="aSize != null" >
         A_SIZE = #{aSize,jdbcType=DOUBLE},
@@ -348,17 +332,16 @@
         IS_ACTIVE = #{isActive,jdbcType=INTEGER},
       </if>
     </set>
-    where ID_AUDIO = #{idAudio,jdbcType=INTEGER}
+    where ID_SUB_AUDIO = #{idSubAudio,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.elearning.api.dao.po.Audio" >
-    update t_audio
-    set ID_CATEGORY = #{idCategory,jdbcType=INTEGER},
-      ID_AUTHOR = #{idAuthor,jdbcType=INTEGER},
-      ID_SOURCE = #{idSource,jdbcType=INTEGER},
-      A_NAME = #{aName,jdbcType=VARCHAR},
-      A_E_NAME = #{aEName,jdbcType=VARCHAR},
-      A_COVER = #{aCover,jdbcType=VARCHAR},
-      A_TRACKS = #{aTracks,jdbcType=INTEGER},
+  <update id="updateByPrimaryKey" parameterType="com.elearning.api.dao.po.SubAudio" >
+    update t_sub_audio
+    set ID_SUB_TYPE = #{idSubType,jdbcType=INTEGER},
+      ID_SUB_ROLE = #{idSubRole,jdbcType=VARCHAR},
+      ID_AUDIO = #{idAudio,jdbcType=INTEGER},
+      ID_SUB_INDEX = #{idSubIndex,jdbcType=INTEGER},
+      ID_SUB_LENGTH = #{idSubLength,jdbcType=INTEGER},
+      A_FILE_PATH = #{aFilePath,jdbcType=VARCHAR},
       A_SIZE = #{aSize,jdbcType=DOUBLE},
       A_RECOMMEND = #{aRecommend,jdbcType=VARCHAR},
       CREATETIME = #{createtime,jdbcType=TIMESTAMP},
@@ -366,46 +349,6 @@
       UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
       UPDATEUSER = #{updateuser,jdbcType=VARCHAR},
       IS_ACTIVE = #{isActive,jdbcType=INTEGER}
-    where ID_AUDIO = #{idAudio,jdbcType=INTEGER}
+    where ID_SUB_AUDIO = #{idSubAudio,jdbcType=INTEGER}
   </update>
-  <select id="getAudioList"  resultType="com.elearning.api.dao.po.Audio" >
-	SELECT 
-	    a.ID_Audio as idAudio,
-	    a.ID_Category as idCategory,
-	    a.ID_Author as idAuthor,
-	    a.ID_source as idSource,
-	    a.A_NAME as aName,
-	    a.A_E_NAME as aEName,
-	    a.A_COVER as aCover,
-	    a.A_FILE_PATH as aFilePath,
-	    a.A_SIZE as aSize,
-	    c.C_NAME as cName,
-	    c.C_TYPE as cType,
-	    au.AU_NAME as auName,
-	    s.S_NAME as sName,
-	    s.S_TYPE as sType,
-	    s.S_YEAR as sYear
-	FROM
-	    t_audio AS a,
-	    t_category AS c,
-	    t_author AS au,
-	    t_source AS s
-	WHERE
-	    a.id_category = c.id_category
-        AND a.id_author = au.id_author
-        AND a.id_source = s.id_source
-        AND a.IS_ACTIVE = 1
-        AND c.IS_ACTIVE = 1
-        AND au.IS_ACTIVE = 1
-        AND s.IS_ACTIVE = 1
-		<if test="idCategory != null" >
-		and a.id_category = #{idCategory,jdbcType=INTEGER}
-		</if>
-		<if test="idAuthor != null" >
-		AND a.id_author = #{idAuthor,jdbcType=INTEGER}
-		</if>
-		<if test="idSource != null" >
-		AND a.id_source = #{idSource,jdbcType=INTEGER}
-		</if>
-  </select>
 </mapper>

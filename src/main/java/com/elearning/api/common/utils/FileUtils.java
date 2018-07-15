@@ -11,7 +11,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileUtils {
 	
-    public static String upload(@RequestParam("file") MultipartFile file) throws Exception {
+    public static String upload(
+    		@RequestParam("file") MultipartFile file 
+    		
+    		) throws Exception {
     	String filePath = "";
         if (!file.isEmpty()) {
             try {

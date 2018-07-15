@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.elearning.api.dao.po.Audio;
 import com.elearning.api.dao.po.AudioExample;
-import com.elearning.api.dao.po.AudioKey;
+
 
 @Mapper
 public interface AudioMapper {
@@ -15,7 +15,7 @@ public interface AudioMapper {
 
     int deleteByExample(AudioExample example);
 
-    int deleteByPrimaryKey(AudioKey key);
+    int deleteByPrimaryKey(Integer idAudio);
 
     int insert(Audio record);
 
@@ -23,7 +23,7 @@ public interface AudioMapper {
 
     List<Audio> selectByExample(AudioExample example);
 
-    Audio selectByPrimaryKey(AudioKey key);
+    Audio selectByPrimaryKey(Integer idAudio);
 
     int updateByExampleSelective(@Param("record") Audio record, @Param("example") AudioExample example);
 
