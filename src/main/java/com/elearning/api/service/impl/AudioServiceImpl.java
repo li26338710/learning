@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.elearning.api.dao.AudioMapper;
 import com.elearning.api.dao.po.Audio;
+import com.elearning.api.dao.po.AudioInfo;
+import com.elearning.api.dao.po.AudioTrack;
 import com.elearning.api.service.AudioService;
 
 @Service
@@ -28,6 +30,24 @@ public class AudioServiceImpl implements AudioService{
 		List<Audio> audioList = audioDao.getAudioList(categoryId, null, null);
 		
 		return audioList;
+	}
+
+	@Override
+	public AudioInfo getAudioInfo(Integer id, Integer mode, String openid) {
+		
+		AudioInfo audioInfo = new AudioInfo();
+		
+		// Get all sub audio for this audio.
+		List<AudioTrack> audioTrackList = audioDao.getAudioInfo(id);
+		
+		// Get all recording for this user audio.
+		List<AudioTrack> audioRecordList = audioDao.getRecordingInfo(id , openid);
+		
+		audioInfo.setIdAudio(id);
+		audioInfo.setAudioTrackList(audioTrackList);
+		audioInfo.setAudioRecordList(audioRecordList);
+		
+		return audioInfo;
 	}
 
 }

@@ -408,4 +408,49 @@
 		AND a.id_source = #{idSource,jdbcType=INTEGER}
 		</if>
   </select>
+  <select id="getAudioInfo"  resultType="com.elearning.api.dao.po.AudioTrack" >
+	SELECT 
+	    a.ID_AUDIO as idAudio,
+	    suba.ID_SUB_AUDIO as idSubAudio,
+	    suba.ID_SUB_TYPE as idSubType,
+	    suba.ID_SUB_ROLE as idSubRole,
+	    suba.ID_SUB_INDEX as idSubIndex,
+	    suba.ID_SUB_LENGTH as idSubLength,
+	    suba.A_FILE_PATH as rFilePath,
+	    suba.A_SIZE as rFileSize
+	FROM
+	    t_audio a,
+	    t_sub_audio suba
+	WHERE
+			a.ID_AUDIO = suba.ID_AUDIO
+		AND a.ID_AUDIO = #{idAudio,jdbcType=INTEGER}
+		AND a.IS_ACTIVE = 1
+		AND suba.IS_ACTIVE = 1
+	ORDER BY suba.ID_SUB_INDEX
+  </select>
+  <select id="getRecordingInfo"  resultType="com.elearning.api.dao.po.AudioTrack" >
+	SELECT 
+		a.ID_AUDIO as idAudio,
+		suba.ID_SUB_AUDIO as idSubAudio,
+		suba.ID_SUB_TYPE as idSubType,
+		suba.ID_SUB_ROLE as idSubRole,
+		suba.ID_SUB_INDEX as idSubIndex,
+		suba.ID_SUB_LENGTH as idSubLength,
+		r.R_FILE_PATH as rFilePath,
+		r.R_FILE_SIZE as rFileSize
+	FROM
+	    t_audio a,
+	    t_recording r,
+	    t_wxuser wx,
+	    t_sub_audio suba
+	WHERE
+			a.ID_AUDIO = #{id,jdbcType=INTEGER} 
+		AND wx.U_OPENID = #{openid,jdbcType=VARCHAR} 
+		AND wx.ID_WXUSER = r.ID_WXUSER
+		AND suba.ID_AUDIO = a.ID_AUDIO
+		AND suba.ID_SUB_AUDIO = r.ID_SUB_AUDIO
+		AND a.IS_ACTIVE = 1
+		AND wx.IS_ACTIVE = 1
+	ORDER BY r.r_SEQ_NO , suba.ID_SUB_INDEX
+  </select>
 </mapper>

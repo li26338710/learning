@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.elearning.api.dao.po.Audio;
 import com.elearning.api.dao.po.AudioExample;
+import com.elearning.api.dao.po.AudioTrack;
 
 
 @Mapper
@@ -34,4 +35,8 @@ public interface AudioMapper {
     int updateByPrimaryKey(Audio record);
     
     List<Audio> getAudioList(@Param("idCategory") Integer idCategory,@Param("idAuthor") Integer idAuthor,@Param("idSource") Integer idSource);
+
+	List<AudioTrack> getAudioInfo(@Param("idAudio") Integer id);
+
+	List<AudioTrack> getRecordingInfo(@Param("id")Integer id, @Param("openid")String openid);
 }
