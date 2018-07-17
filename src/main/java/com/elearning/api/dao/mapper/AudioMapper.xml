@@ -377,7 +377,7 @@
 	    a.A_NAME as aName,
 	    a.A_E_NAME as aEName,
 	    a.A_COVER as aCover,
-	    a.A_FILE_PATH as aFilePath,
+	   
 	    a.A_SIZE as aSize,
 	    c.C_NAME as cName,
 	    c.C_TYPE as cType,

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="context1">
+    <jdbcConnection connectionURL="jdbc:h2:mem:elearning" driverClass="org.h2.Driver"  userId="sa" password=""/>
+    <javaModelGenerator targetPackage="com.elearning.api.dao.po" targetProject="learning-jun-demo/src" />
+    <sqlMapGenerator targetPackage="com.elearning.api.dao" targetProject="learning-jun-demo/src" />
+    <javaClientGenerator targetPackage="com.elearning.api.dao.mapper" targetProject="learning-jun-demo/src" type="XMLMAPPER" />
+
+    
+    <table schema="elearning" tableName="t_wxuser"
+			domainObjectName="WxUser" enableCountByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			enableUpdateByExample="false">
+			<!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample 
+				是否生成 example类   -->
+	</table>
+			
+  </context>
+</generatorConfiguration>
