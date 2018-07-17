@@ -8,7 +8,7 @@
     <javaClientGenerator targetPackage="com.elearning.api.dao.mapper" targetProject="learning-jun-demo/src" type="XMLMAPPER" />
 
     
-    <table schema="elearning" tableName="t_wxuser"
+    <table tableName="T_WXUSER"
 			domainObjectName="WxUser" enableCountByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			enableUpdateByExample="false">

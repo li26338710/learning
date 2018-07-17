@@ -436,6 +436,8 @@
 		suba.ID_SUB_ROLE as idSubRole,
 		suba.ID_SUB_INDEX as idSubIndex,
 		suba.ID_SUB_LENGTH as idSubLength,
+		
+		r.R_SEQ_NO as rSeqNo,
 		r.R_FILE_PATH as rFilePath,
 		r.R_FILE_SIZE as rFileSize
 	FROM

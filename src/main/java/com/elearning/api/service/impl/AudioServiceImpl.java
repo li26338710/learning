@@ -1,6 +1,8 @@
 package com.elearning.api.service.impl;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,9 +45,11 @@ public class AudioServiceImpl implements AudioService{
 		// Get all recording for this user audio.
 		List<AudioTrack> audioRecordList = audioDao.getRecordingInfo(id , openid);
 		
+		Map<Integer, List<AudioTrack>> audioRecordLists = audioRecordList.stream().collect(Collectors.groupingBy(AudioTrack::getrSeqNo));
+		
 		audioInfo.setIdAudio(id);
 		audioInfo.setAudioTrackList(audioTrackList);
-		audioInfo.setAudioRecordList(audioRecordList);
+		audioInfo.setAudioRecordList(audioRecordLists);
 		
 		return audioInfo;
 	}

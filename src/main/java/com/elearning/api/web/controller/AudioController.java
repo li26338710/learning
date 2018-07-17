@@ -35,6 +35,8 @@ public class AudioController {
 	 
 	 @RequestMapping( "/getMusicInfo/{id}/{mode}" )
      public AudioInfo getAudioById(@PathVariable Integer id , @PathVariable Integer mode ,@RequestParam("openid") String openid ){
+		 
+		 
         return audioService.getAudioInfo(id , mode , openid);
     }
 }

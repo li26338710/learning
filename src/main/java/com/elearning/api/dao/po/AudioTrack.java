@@ -10,6 +10,7 @@ public class AudioTrack {
 	private int idSubLength;
 	private String rFilePath;
 	private String rFileSize;
+	private int rSeqNo;
 	
 	public int getIdAudio() {
 		return idAudio;
@@ -59,6 +60,11 @@ public class AudioTrack {
 	public void setrFileSize(String rFileSize) {
 		this.rFileSize = rFileSize;
 	}
-	
+	public int getrSeqNo() {
+		return rSeqNo;
+	}
+	public void setrSeqNo(int rSeqNo) {
+		this.rSeqNo = rSeqNo;
+	}
 	
 }
