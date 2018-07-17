@@ -7,9 +7,13 @@ public class Recording {
 
     private Integer idSubAudio;
 
-    private String idUserid;
+    private Integer idWxuser;
+
+    private Integer rSeqNo;
 
     private Date rRecordTime;
+
+    private String rFilePath;
 
     private String rFileSize;
 
@@ -43,12 +47,20 @@ public class Recording {
         this.idSubAudio = idSubAudio;
     }
 
-    public String getIdUserid() {
-        return idUserid;
+    public Integer getIdWxuser() {
+        return idWxuser;
     }
 
-    public void setIdUserid(String idUserid) {
-        this.idUserid = idUserid;
+    public void setIdWxuser(Integer idWxuser) {
+        this.idWxuser = idWxuser;
+    }
+
+    public Integer getrSeqNo() {
+        return rSeqNo;
+    }
+
+    public void setrSeqNo(Integer rSeqNo) {
+        this.rSeqNo = rSeqNo;
     }
 
     public Date getrRecordTime() {
@@ -57,6 +69,14 @@ public class Recording {
 
     public void setrRecordTime(Date rRecordTime) {
         this.rRecordTime = rRecordTime;
+    }
+
+    public String getrFilePath() {
+        return rFilePath;
+    }
+
+    public void setrFilePath(String rFilePath) {
+        this.rFilePath = rFilePath;
     }
 
     public String getrFileSize() {

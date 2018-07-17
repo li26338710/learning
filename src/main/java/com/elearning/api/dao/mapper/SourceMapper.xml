@@ -274,4 +274,5 @@
       IS_ACTIVE = #{isActive,jdbcType=INTEGER}
     where ID_SOURCE = #{idSource,jdbcType=INTEGER}
   </update>
+
 </mapper>

@@ -455,4 +455,5 @@
 		AND wx.IS_ACTIVE = 1
 	ORDER BY r.r_SEQ_NO , suba.ID_SUB_INDEX
   </select>
+    
 </mapper>

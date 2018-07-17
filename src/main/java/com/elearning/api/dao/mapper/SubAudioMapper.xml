@@ -351,4 +351,5 @@
       IS_ACTIVE = #{isActive,jdbcType=INTEGER}
     where ID_SUB_AUDIO = #{idSubAudio,jdbcType=INTEGER}
   </update>
+
 </mapper>

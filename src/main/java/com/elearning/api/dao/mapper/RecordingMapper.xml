@@ -2,18 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.elearning.api.dao.RecordingMapper" >
   <resultMap id="BaseResultMap" type="com.elearning.api.dao.po.Recording" >
-    <id column="ID_RECORDING" property="idRecording" jdbcType="INTEGER" />
-    <result column="ID_SUB_AUDIO" property="idSubAudio" jdbcType="INTEGER" />
-    <result column="ID_USERID" property="idUserid" jdbcType="VARCHAR" />
-    <result column="R_RECORD_TIME" property="rRecordTime" jdbcType="TIMESTAMP" />
-    <result column="R_FILE_SIZE" property="rFileSize" jdbcType="VARCHAR" />
-    <result column="R_CLIENTIP" property="rClientip" jdbcType="VARCHAR" />
-    <result column="R_CLIENTAPP" property="rClientapp" jdbcType="VARCHAR" />
-    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
-    <result column="CREATEUSER" property="createuser" jdbcType="VARCHAR" />
-    <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
-    <result column="UPDATEUSER" property="updateuser" jdbcType="VARCHAR" />
-    <result column="IS_ACTIVE" property="isActive" jdbcType="INTEGER" />
+    <id column="ID_RECORDING" jdbcType="INTEGER" property="idRecording" />
+    <result column="ID_SUB_AUDIO" jdbcType="INTEGER" property="idSubAudio" />
+    <result column="ID_WXUSER" jdbcType="INTEGER" property="idWxuser" />
+    <result column="R_SEQ_NO" jdbcType="INTEGER" property="rSeqNo" />
+    <result column="R_RECORD_TIME" jdbcType="TIMESTAMP" property="rRecordTime" />
+    <result column="R_FILE_PATH" jdbcType="VARCHAR" property="rFilePath" />
+    <result column="R_FILE_SIZE" jdbcType="VARCHAR" property="rFileSize" />
+    <result column="R_CLIENTIP" jdbcType="VARCHAR" property="rClientip" />
+    <result column="R_CLIENTAPP" jdbcType="VARCHAR" property="rClientapp" />
+    <result column="CREATETIME" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="CREATEUSER" jdbcType="VARCHAR" property="createuser" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="UPDATEUSER" jdbcType="VARCHAR" property="updateuser" />
+    <result column="IS_ACTIVE" jdbcType="INTEGER" property="isActive" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -62,7 +64,7 @@
                 </when>
                 <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -73,188 +75,208 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List" >
-    ID_RECORDING, ID_SUB_AUDIO, ID_USERID, R_RECORD_TIME, R_FILE_SIZE, R_CLIENTIP, R_CLIENTAPP, 
-    CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER, IS_ACTIVE
+  <sql id="Base_Column_List">
+    ID_RECORDING, ID_SUB_AUDIO, ID_WXUSER, R_SEQ_NO, R_RECORD_TIME, R_FILE_PATH, R_FILE_SIZE, 
+    R_CLIENTIP, R_CLIENTAPP, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER, IS_ACTIVE
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.elearning.api.dao.po.RecordingExample" >
+  <select id="selectByExample" parameterType="com.elearning.api.dao.po.RecordingExample" resultMap="BaseResultMap">
     select
-    <if test="distinct" >
+    <if test="distinct">
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
     from t_recording
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null" >
+    <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_recording
     where ID_RECORDING = #{idRecording,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_recording
     where ID_RECORDING = #{idRecording,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.elearning.api.dao.po.RecordingExample" >
+  <delete id="deleteByExample" parameterType="com.elearning.api.dao.po.RecordingExample">
     delete from t_recording
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.elearning.api.dao.po.Recording" >
-    insert into t_recording (ID_RECORDING, ID_SUB_AUDIO, ID_USERID, 
-      R_RECORD_TIME, R_FILE_SIZE, R_CLIENTIP, 
-      R_CLIENTAPP, CREATETIME, CREATEUSER, 
-      UPDATETIME, UPDATEUSER, IS_ACTIVE
-      )
-    values (#{idRecording,jdbcType=INTEGER}, #{idSubAudio,jdbcType=INTEGER}, #{idUserid,jdbcType=VARCHAR}, 
-      #{rRecordTime,jdbcType=TIMESTAMP}, #{rFileSize,jdbcType=VARCHAR}, #{rClientip,jdbcType=VARCHAR}, 
-      #{rClientapp,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{createuser,jdbcType=VARCHAR}, 
-      #{updatetime,jdbcType=TIMESTAMP}, #{updateuser,jdbcType=VARCHAR}, #{isActive,jdbcType=INTEGER}
-      )
+  <insert id="insert" parameterType="com.elearning.api.dao.po.Recording">
+    insert into t_recording (ID_RECORDING, ID_SUB_AUDIO, ID_WXUSER, 
+      R_SEQ_NO, R_RECORD_TIME, R_FILE_PATH, 
+      R_FILE_SIZE, R_CLIENTIP, R_CLIENTAPP, 
+      CREATETIME, CREATEUSER, UPDATETIME, 
+      UPDATEUSER, IS_ACTIVE)
+    values (#{idRecording,jdbcType=INTEGER}, #{idSubAudio,jdbcType=INTEGER}, #{idWxuser,jdbcType=INTEGER}, 
+      #{rSeqNo,jdbcType=INTEGER}, #{rRecordTime,jdbcType=TIMESTAMP}, #{rFilePath,jdbcType=VARCHAR}, 
+      #{rFileSize,jdbcType=VARCHAR}, #{rClientip,jdbcType=VARCHAR}, #{rClientapp,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{createuser,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{updateuser,jdbcType=VARCHAR}, #{isActive,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.elearning.api.dao.po.Recording" >
+  <insert id="insertSelective" parameterType="com.elearning.api.dao.po.Recording">
     insert into t_recording
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="idRecording != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="idRecording != null">
         ID_RECORDING,
       </if>
-      <if test="idSubAudio != null" >
+      <if test="idSubAudio != null">
         ID_SUB_AUDIO,
       </if>
-      <if test="idUserid != null" >
-        ID_USERID,
+      <if test="idWxuser != null">
+        ID_WXUSER,
       </if>
-      <if test="rRecordTime != null" >
+      <if test="rSeqNo != null">
+        R_SEQ_NO,
+      </if>
+      <if test="rRecordTime != null">
         R_RECORD_TIME,
       </if>
-      <if test="rFileSize != null" >
+      <if test="rFilePath != null">
+        R_FILE_PATH,
+      </if>
+      <if test="rFileSize != null">
         R_FILE_SIZE,
       </if>
-      <if test="rClientip != null" >
+      <if test="rClientip != null">
         R_CLIENTIP,
       </if>
-      <if test="rClientapp != null" >
+      <if test="rClientapp != null">
         R_CLIENTAPP,
       </if>
-      <if test="createtime != null" >
+      <if test="createtime != null">
         CREATETIME,
       </if>
-      <if test="createuser != null" >
+      <if test="createuser != null">
         CREATEUSER,
       </if>
-      <if test="updatetime != null" >
+      <if test="updatetime != null">
         UPDATETIME,
       </if>
-      <if test="updateuser != null" >
+      <if test="updateuser != null">
         UPDATEUSER,
       </if>
-      <if test="isActive != null" >
+      <if test="isActive != null">
         IS_ACTIVE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="idRecording != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="idRecording != null">
         #{idRecording,jdbcType=INTEGER},
       </if>
-      <if test="idSubAudio != null" >
+      <if test="idSubAudio != null">
         #{idSubAudio,jdbcType=INTEGER},
       </if>
-      <if test="idUserid != null" >
-        #{idUserid,jdbcType=VARCHAR},
+      <if test="idWxuser != null">
+        #{idWxuser,jdbcType=INTEGER},
       </if>
-      <if test="rRecordTime != null" >
+      <if test="rSeqNo != null">
+        #{rSeqNo,jdbcType=INTEGER},
+      </if>
+      <if test="rRecordTime != null">
         #{rRecordTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="rFileSize != null" >
+      <if test="rFilePath != null">
+        #{rFilePath,jdbcType=VARCHAR},
+      </if>
+      <if test="rFileSize != null">
         #{rFileSize,jdbcType=VARCHAR},
       </if>
-      <if test="rClientip != null" >
+      <if test="rClientip != null">
         #{rClientip,jdbcType=VARCHAR},
       </if>
-      <if test="rClientapp != null" >
+      <if test="rClientapp != null">
         #{rClientapp,jdbcType=VARCHAR},
       </if>
-      <if test="createtime != null" >
+      <if test="createtime != null">
         #{createtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="createuser != null" >
+      <if test="createuser != null">
         #{createuser,jdbcType=VARCHAR},
       </if>
-      <if test="updatetime != null" >
+      <if test="updatetime != null">
         #{updatetime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateuser != null" >
+      <if test="updateuser != null">
         #{updateuser,jdbcType=VARCHAR},
       </if>
-      <if test="isActive != null" >
+      <if test="isActive != null">
         #{isActive,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.elearning.api.dao.po.RecordingExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.elearning.api.dao.po.RecordingExample" resultType="java.lang.Integer">
     select count(*) from t_recording
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+  <update id="updateByExampleSelective" parameterType="map">
     update t_recording
-    <set >
-      <if test="record.idRecording != null" >
+    <set>
+      <if test="record.idRecording != null">
         ID_RECORDING = #{record.idRecording,jdbcType=INTEGER},
       </if>
-      <if test="record.idSubAudio != null" >
+      <if test="record.idSubAudio != null">
         ID_SUB_AUDIO = #{record.idSubAudio,jdbcType=INTEGER},
       </if>
-      <if test="record.idUserid != null" >
-        ID_USERID = #{record.idUserid,jdbcType=VARCHAR},
+      <if test="record.idWxuser != null">
+        ID_WXUSER = #{record.idWxuser,jdbcType=INTEGER},
       </if>
-      <if test="record.rRecordTime != null" >
+      <if test="record.rSeqNo != null">
+        R_SEQ_NO = #{record.rSeqNo,jdbcType=INTEGER},
+      </if>
+      <if test="record.rRecordTime != null">
         R_RECORD_TIME = #{record.rRecordTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.rFileSize != null" >
+      <if test="record.rFilePath != null">
+        R_FILE_PATH = #{record.rFilePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rFileSize != null">
         R_FILE_SIZE = #{record.rFileSize,jdbcType=VARCHAR},
       </if>
-      <if test="record.rClientip != null" >
+      <if test="record.rClientip != null">
         R_CLIENTIP = #{record.rClientip,jdbcType=VARCHAR},
       </if>
-      <if test="record.rClientapp != null" >
+      <if test="record.rClientapp != null">
         R_CLIENTAPP = #{record.rClientapp,jdbcType=VARCHAR},
       </if>
-      <if test="record.createtime != null" >
+      <if test="record.createtime != null">
         CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.createuser != null" >
+      <if test="record.createuser != null">
         CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
       </if>
-      <if test="record.updatetime != null" >
+      <if test="record.updatetime != null">
         UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.updateuser != null" >
+      <if test="record.updateuser != null">
         UPDATEUSER = #{record.updateuser,jdbcType=VARCHAR},
       </if>
-      <if test="record.isActive != null" >
+      <if test="record.isActive != null">
         IS_ACTIVE = #{record.isActive,jdbcType=INTEGER},
       </if>
     </set>
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map" >
+  <update id="updateByExample" parameterType="map">
     update t_recording
     set ID_RECORDING = #{record.idRecording,jdbcType=INTEGER},
       ID_SUB_AUDIO = #{record.idSubAudio,jdbcType=INTEGER},
-      ID_USERID = #{record.idUserid,jdbcType=VARCHAR},
+      ID_WXUSER = #{record.idWxuser,jdbcType=INTEGER},
+      R_SEQ_NO = #{record.rSeqNo,jdbcType=INTEGER},
       R_RECORD_TIME = #{record.rRecordTime,jdbcType=TIMESTAMP},
+      R_FILE_PATH = #{record.rFilePath,jdbcType=VARCHAR},
       R_FILE_SIZE = #{record.rFileSize,jdbcType=VARCHAR},
       R_CLIENTIP = #{record.rClientip,jdbcType=VARCHAR},
       R_CLIENTAPP = #{record.rClientapp,jdbcType=VARCHAR},
@@ -263,54 +285,62 @@
       UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
       UPDATEUSER = #{record.updateuser,jdbcType=VARCHAR},
       IS_ACTIVE = #{record.isActive,jdbcType=INTEGER}
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.elearning.api.dao.po.Recording" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.elearning.api.dao.po.Recording">
     update t_recording
-    <set >
-      <if test="idSubAudio != null" >
+    <set>
+      <if test="idSubAudio != null">
         ID_SUB_AUDIO = #{idSubAudio,jdbcType=INTEGER},
       </if>
-      <if test="idUserid != null" >
-        ID_USERID = #{idUserid,jdbcType=VARCHAR},
+      <if test="idWxuser != null">
+        ID_WXUSER = #{idWxuser,jdbcType=INTEGER},
       </if>
-      <if test="rRecordTime != null" >
+      <if test="rSeqNo != null">
+        R_SEQ_NO = #{rSeqNo,jdbcType=INTEGER},
+      </if>
+      <if test="rRecordTime != null">
         R_RECORD_TIME = #{rRecordTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="rFileSize != null" >
+      <if test="rFilePath != null">
+        R_FILE_PATH = #{rFilePath,jdbcType=VARCHAR},
+      </if>
+      <if test="rFileSize != null">
         R_FILE_SIZE = #{rFileSize,jdbcType=VARCHAR},
       </if>
-      <if test="rClientip != null" >
+      <if test="rClientip != null">
         R_CLIENTIP = #{rClientip,jdbcType=VARCHAR},
       </if>
-      <if test="rClientapp != null" >
+      <if test="rClientapp != null">
         R_CLIENTAPP = #{rClientapp,jdbcType=VARCHAR},
       </if>
-      <if test="createtime != null" >
+      <if test="createtime != null">
         CREATETIME = #{createtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="createuser != null" >
+      <if test="createuser != null">
         CREATEUSER = #{createuser,jdbcType=VARCHAR},
       </if>
-      <if test="updatetime != null" >
+      <if test="updatetime != null">
         UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateuser != null" >
+      <if test="updateuser != null">
         UPDATEUSER = #{updateuser,jdbcType=VARCHAR},
       </if>
-      <if test="isActive != null" >
+      <if test="isActive != null">
         IS_ACTIVE = #{isActive,jdbcType=INTEGER},
       </if>
     </set>
     where ID_RECORDING = #{idRecording,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.elearning.api.dao.po.Recording" >
+  <update id="updateByPrimaryKey" parameterType="com.elearning.api.dao.po.Recording">
     update t_recording
     set ID_SUB_AUDIO = #{idSubAudio,jdbcType=INTEGER},
-      ID_USERID = #{idUserid,jdbcType=VARCHAR},
+      ID_WXUSER = #{idWxuser,jdbcType=INTEGER},
+      R_SEQ_NO = #{rSeqNo,jdbcType=INTEGER},
       R_RECORD_TIME = #{rRecordTime,jdbcType=TIMESTAMP},
+      R_FILE_PATH = #{rFilePath,jdbcType=VARCHAR},
       R_FILE_SIZE = #{rFileSize,jdbcType=VARCHAR},
       R_CLIENTIP = #{rClientip,jdbcType=VARCHAR},
       R_CLIENTAPP = #{rClientapp,jdbcType=VARCHAR},
@@ -321,4 +351,5 @@
       IS_ACTIVE = #{isActive,jdbcType=INTEGER}
     where ID_RECORDING = #{idRecording,jdbcType=INTEGER}
   </update>
+
 </mapper>

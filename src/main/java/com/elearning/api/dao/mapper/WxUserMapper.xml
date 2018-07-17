@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.elearning.api.dao.CategoryMapper" >
-  <resultMap id="BaseResultMap" type="com.elearning.api.dao.po.Category" >
-    <id column="ID_CATEGORY" property="idCategory" jdbcType="INTEGER" />
-    <result column="C_NAME" property="cName" jdbcType="VARCHAR" />
-    <result column="C_TYPE" property="cType" jdbcType="VARCHAR" />
+<mapper namespace="com.elearning.api.dao.WxUserMapper" >
+  <resultMap id="BaseResultMap" type="com.elearning.api.dao.po.WxUser" >
+    <id column="ID_WXUSER" property="idWxuser" jdbcType="INTEGER" />
+    <result column="U_OPENID" property="uOpenid" jdbcType="VARCHAR" />
+    <result column="U_NICKNAME" property="uNickname" jdbcType="VARCHAR" />
+    <result column="U_PROVINCE" property="uProvince" jdbcType="VARCHAR" />
+    <result column="U_COUNTRY" property="uCountry" jdbcType="VARCHAR" />
+    <result column="U_CITY" property="uCity" jdbcType="VARCHAR" />
+    <result column="U_AVATARURL" property="uAvatarurl" jdbcType="VARCHAR" />
+    <result column="U_GENDER" property="uGender" jdbcType="INTEGER" />
     <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
     <result column="CREATEUSER" property="createuser" jdbcType="VARCHAR" />
     <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
@@ -70,16 +75,17 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ID_CATEGORY, C_NAME, C_TYPE, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER, IS_ACTIVE
+    ID_WXUSER, U_OPENID, U_NICKNAME, U_PROVINCE, U_COUNTRY, U_CITY, U_AVATARURL, U_GENDER, 
+    CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER, IS_ACTIVE
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.elearning.api.dao.po.CategoryExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.elearning.api.dao.po.WxUserExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from t_category
+    from t_wxuser
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -90,38 +96,57 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from t_category
-    where ID_CATEGORY = #{idCategory,jdbcType=INTEGER}
+    from t_wxuser
+    where ID_WXUSER = #{idWxuser,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from t_category
-    where ID_CATEGORY = #{idCategory,jdbcType=INTEGER}
+    delete from t_wxuser
+    where ID_WXUSER = #{idWxuser,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.elearning.api.dao.po.CategoryExample" >
-    delete from t_category
+  <delete id="deleteByExample" parameterType="com.elearning.api.dao.po.WxUserExample" >
+    delete from t_wxuser
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.elearning.api.dao.po.Category" >
-    insert into t_category (ID_CATEGORY, C_NAME, C_TYPE, 
-      CREATETIME, CREATEUSER, UPDATETIME, 
-      UPDATEUSER, IS_ACTIVE)
-    values (#{idCategory,jdbcType=INTEGER}, #{cName,jdbcType=VARCHAR}, #{cType,jdbcType=VARCHAR}, 
-      #{createtime,jdbcType=TIMESTAMP}, #{createuser,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, 
-      #{updateuser,jdbcType=VARCHAR}, #{isActive,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.elearning.api.dao.po.WxUser" >
+    insert into t_wxuser (ID_WXUSER, U_OPENID, U_NICKNAME, 
+      U_PROVINCE, U_COUNTRY, U_CITY, 
+      U_AVATARURL, U_GENDER, CREATETIME, 
+      CREATEUSER, UPDATETIME, UPDATEUSER, 
+      IS_ACTIVE)
+    values (#{idWxuser,jdbcType=INTEGER}, #{uOpenid,jdbcType=VARCHAR}, #{uNickname,jdbcType=VARCHAR}, 
+      #{uProvince,jdbcType=VARCHAR}, #{uCountry,jdbcType=VARCHAR}, #{uCity,jdbcType=VARCHAR}, 
+      #{uAvatarurl,jdbcType=VARCHAR}, #{uGender,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{createuser,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, #{updateuser,jdbcType=VARCHAR}, 
+      #{isActive,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.elearning.api.dao.po.Category" >
-    insert into t_category
+  <insert id="insertSelective" parameterType="com.elearning.api.dao.po.WxUser" >
+    insert into t_wxuser
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="idCategory != null" >
-        ID_CATEGORY,
+      <if test="idWxuser != null" >
+        ID_WXUSER,
       </if>
-      <if test="cName != null" >
-        C_NAME,
+      <if test="uOpenid != null" >
+        U_OPENID,
       </if>
-      <if test="cType != null" >
-        C_TYPE,
+      <if test="uNickname != null" >
+        U_NICKNAME,
+      </if>
+      <if test="uProvince != null" >
+        U_PROVINCE,
+      </if>
+      <if test="uCountry != null" >
+        U_COUNTRY,
+      </if>
+      <if test="uCity != null" >
+        U_CITY,
+      </if>
+      <if test="uAvatarurl != null" >
+        U_AVATARURL,
+      </if>
+      <if test="uGender != null" >
+        U_GENDER,
       </if>
       <if test="createtime != null" >
         CREATETIME,
@@ -140,14 +165,29 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="idCategory != null" >
-        #{idCategory,jdbcType=INTEGER},
+      <if test="idWxuser != null" >
+        #{idWxuser,jdbcType=INTEGER},
       </if>
-      <if test="cName != null" >
-        #{cName,jdbcType=VARCHAR},
+      <if test="uOpenid != null" >
+        #{uOpenid,jdbcType=VARCHAR},
       </if>
-      <if test="cType != null" >
-        #{cType,jdbcType=VARCHAR},
+      <if test="uNickname != null" >
+        #{uNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="uProvince != null" >
+        #{uProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="uCountry != null" >
+        #{uCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="uCity != null" >
+        #{uCity,jdbcType=VARCHAR},
+      </if>
+      <if test="uAvatarurl != null" >
+        #{uAvatarurl,jdbcType=VARCHAR},
+      </if>
+      <if test="uGender != null" >
+        #{uGender,jdbcType=INTEGER},
       </if>
       <if test="createtime != null" >
         #{createtime,jdbcType=TIMESTAMP},
@@ -166,23 +206,38 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.elearning.api.dao.po.CategoryExample" resultType="java.lang.Integer" >
-    select count(*) from t_category
+  <select id="countByExample" parameterType="com.elearning.api.dao.po.WxUserExample" resultType="java.lang.Integer" >
+    select count(*) from t_wxuser
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update t_category
+    update t_wxuser
     <set >
-      <if test="record.idCategory != null" >
-        ID_CATEGORY = #{record.idCategory,jdbcType=INTEGER},
+      <if test="record.idWxuser != null" >
+        ID_WXUSER = #{record.idWxuser,jdbcType=INTEGER},
       </if>
-      <if test="record.cName != null" >
-        C_NAME = #{record.cName,jdbcType=VARCHAR},
+      <if test="record.uOpenid != null" >
+        U_OPENID = #{record.uOpenid,jdbcType=VARCHAR},
       </if>
-      <if test="record.cType != null" >
-        C_TYPE = #{record.cType,jdbcType=VARCHAR},
+      <if test="record.uNickname != null" >
+        U_NICKNAME = #{record.uNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uProvince != null" >
+        U_PROVINCE = #{record.uProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uCountry != null" >
+        U_COUNTRY = #{record.uCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uCity != null" >
+        U_CITY = #{record.uCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uAvatarurl != null" >
+        U_AVATARURL = #{record.uAvatarurl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uGender != null" >
+        U_GENDER = #{record.uGender,jdbcType=INTEGER},
       </if>
       <if test="record.createtime != null" >
         CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
@@ -205,10 +260,15 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update t_category
-    set ID_CATEGORY = #{record.idCategory,jdbcType=INTEGER},
-      C_NAME = #{record.cName,jdbcType=VARCHAR},
-      C_TYPE = #{record.cType,jdbcType=VARCHAR},
+    update t_wxuser
+    set ID_WXUSER = #{record.idWxuser,jdbcType=INTEGER},
+      U_OPENID = #{record.uOpenid,jdbcType=VARCHAR},
+      U_NICKNAME = #{record.uNickname,jdbcType=VARCHAR},
+      U_PROVINCE = #{record.uProvince,jdbcType=VARCHAR},
+      U_COUNTRY = #{record.uCountry,jdbcType=VARCHAR},
+      U_CITY = #{record.uCity,jdbcType=VARCHAR},
+      U_AVATARURL = #{record.uAvatarurl,jdbcType=VARCHAR},
+      U_GENDER = #{record.uGender,jdbcType=INTEGER},
       CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
       CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
       UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
@@ -218,14 +278,29 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.elearning.api.dao.po.Category" >
-    update t_category
+  <update id="updateByPrimaryKeySelective" parameterType="com.elearning.api.dao.po.WxUser" >
+    update t_wxuser
     <set >
-      <if test="cName != null" >
-        C_NAME = #{cName,jdbcType=VARCHAR},
+      <if test="uOpenid != null" >
+        U_OPENID = #{uOpenid,jdbcType=VARCHAR},
       </if>
-      <if test="cType != null" >
-        C_TYPE = #{cType,jdbcType=VARCHAR},
+      <if test="uNickname != null" >
+        U_NICKNAME = #{uNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="uProvince != null" >
+        U_PROVINCE = #{uProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="uCountry != null" >
+        U_COUNTRY = #{uCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="uCity != null" >
+        U_CITY = #{uCity,jdbcType=VARCHAR},
+      </if>
+      <if test="uAvatarurl != null" >
+        U_AVATARURL = #{uAvatarurl,jdbcType=VARCHAR},
+      </if>
+      <if test="uGender != null" >
+        U_GENDER = #{uGender,jdbcType=INTEGER},
       </if>
       <if test="createtime != null" >
         CREATETIME = #{createtime,jdbcType=TIMESTAMP},
@@ -243,18 +318,22 @@
         IS_ACTIVE = #{isActive,jdbcType=INTEGER},
       </if>
     </set>
-    where ID_CATEGORY = #{idCategory,jdbcType=INTEGER}
+    where ID_WXUSER = #{idWxuser,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.elearning.api.dao.po.Category" >
-    update t_category
-    set C_NAME = #{cName,jdbcType=VARCHAR},
-      C_TYPE = #{cType,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.elearning.api.dao.po.WxUser" >
+    update t_wxuser
+    set U_OPENID = #{uOpenid,jdbcType=VARCHAR},
+      U_NICKNAME = #{uNickname,jdbcType=VARCHAR},
+      U_PROVINCE = #{uProvince,jdbcType=VARCHAR},
+      U_COUNTRY = #{uCountry,jdbcType=VARCHAR},
+      U_CITY = #{uCity,jdbcType=VARCHAR},
+      U_AVATARURL = #{uAvatarurl,jdbcType=VARCHAR},
+      U_GENDER = #{uGender,jdbcType=INTEGER},
       CREATETIME = #{createtime,jdbcType=TIMESTAMP},
       CREATEUSER = #{createuser,jdbcType=VARCHAR},
       UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
       UPDATEUSER = #{updateuser,jdbcType=VARCHAR},
       IS_ACTIVE = #{isActive,jdbcType=INTEGER}
-    where ID_CATEGORY = #{idCategory,jdbcType=INTEGER}
+    where ID_WXUSER = #{idWxuser,jdbcType=INTEGER}
   </update>
-
 </mapper>
