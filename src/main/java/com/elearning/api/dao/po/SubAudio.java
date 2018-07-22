@@ -5,15 +5,17 @@ import java.util.Date;
 public class SubAudio {
     private Integer idSubAudio;
 
-    private Integer idSubType;
-
-    private String idSubRole;
-
     private Integer idAudio;
 
-    private Integer idSubIndex;
+    private Integer subAudioType;
 
-    private Integer idSubLength;
+    private Integer subAudioRole;
+
+    private String subAudioRoleComment;
+
+    private Integer subAudioIndex;
+
+    private Integer subAudioLength;
 
     private String aFilePath;
 
@@ -39,22 +41,6 @@ public class SubAudio {
         this.idSubAudio = idSubAudio;
     }
 
-    public Integer getIdSubType() {
-        return idSubType;
-    }
-
-    public void setIdSubType(Integer idSubType) {
-        this.idSubType = idSubType;
-    }
-
-    public String getIdSubRole() {
-        return idSubRole;
-    }
-
-    public void setIdSubRole(String idSubRole) {
-        this.idSubRole = idSubRole;
-    }
-
     public Integer getIdAudio() {
         return idAudio;
     }
@@ -63,20 +49,44 @@ public class SubAudio {
         this.idAudio = idAudio;
     }
 
-    public Integer getIdSubIndex() {
-        return idSubIndex;
+    public Integer getSubAudioType() {
+        return subAudioType;
     }
 
-    public void setIdSubIndex(Integer idSubIndex) {
-        this.idSubIndex = idSubIndex;
+    public void setSubAudioType(Integer subAudioType) {
+        this.subAudioType = subAudioType;
     }
 
-    public Integer getIdSubLength() {
-        return idSubLength;
+    public Integer getSubAudioRole() {
+        return subAudioRole;
     }
 
-    public void setIdSubLength(Integer idSubLength) {
-        this.idSubLength = idSubLength;
+    public void setSubAudioRole(Integer subAudioRole) {
+        this.subAudioRole = subAudioRole;
+    }
+
+    public String getSubAudioRoleComment() {
+        return subAudioRoleComment;
+    }
+
+    public void setSubAudioRoleComment(String subAudioRoleComment) {
+        this.subAudioRoleComment = subAudioRoleComment;
+    }
+
+    public Integer getSubAudioIndex() {
+        return subAudioIndex;
+    }
+
+    public void setSubAudioIndex(Integer subAudioIndex) {
+        this.subAudioIndex = subAudioIndex;
+    }
+
+    public Integer getSubAudioLength() {
+        return subAudioLength;
+    }
+
+    public void setSubAudioLength(Integer subAudioLength) {
+        this.subAudioLength = subAudioLength;
     }
 
     public String getaFilePath() {

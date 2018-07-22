@@ -4,10 +4,11 @@ public class AudioTrack {
 
 	private int idAudio;
 	private int idSubAudio;
-	private int idSubType;
-	private String idSubRole;
-	private int idSubIndex;
-	private int idSubLength;
+	private int subAudioType;
+	private String subAudioRole;
+	private String subAudioRoleComment;
+	private int subAudioIndex;
+	private int subAudioLength;
 	private String rFilePath;
 	private String rFileSize;
 	private int rSeqNo;
@@ -24,30 +25,7 @@ public class AudioTrack {
 	public void setIdSubAudio(int idSubAudio) {
 		this.idSubAudio = idSubAudio;
 	}
-	public int getIdSubType() {
-		return idSubType;
-	}
-	public void setIdSubType(int idSubType) {
-		this.idSubType = idSubType;
-	}
-	public String getIdSubRole() {
-		return idSubRole;
-	}
-	public void setIdSubRole(String idSubRole) {
-		this.idSubRole = idSubRole;
-	}
-	public int getIdSubIndex() {
-		return idSubIndex;
-	}
-	public void setIdSubIndex(int idSubIndex) {
-		this.idSubIndex = idSubIndex;
-	}
-	public int getIdSubLength() {
-		return idSubLength;
-	}
-	public void setIdSubLength(int idSubLength) {
-		this.idSubLength = idSubLength;
-	}
+
 	public String getrFilePath() {
 		return rFilePath;
 	}
@@ -66,5 +44,59 @@ public class AudioTrack {
 	public void setrSeqNo(int rSeqNo) {
 		this.rSeqNo = rSeqNo;
 	}
+	public int getSubAudioType() {
+		return subAudioType;
+	}
+	public void setSubAudioType(int subAudioType) {
+		this.subAudioType = subAudioType;
+	}
+	public String getSubAudioRole() {
+		return subAudioRole;
+	}
+	public void setSubAudioRole(String subAudioRole) {
+		this.subAudioRole = subAudioRole;
+	}
+	public String getSubAudioRoleComment() {
+		return subAudioRoleComment;
+	}
+	public void setSubAudioRoleComment(String subAudioRoleComment) {
+		this.subAudioRoleComment = subAudioRoleComment;
+	}
+	public int getSubAudioIndex() {
+		return subAudioIndex;
+	}
+	public void setSubAudioIndex(int subAudioIndex) {
+		this.subAudioIndex = subAudioIndex;
+	}
+	public int getSubAudioLength() {
+		return subAudioLength;
+	}
+	public void setSubAudioLength(int subAudioLength) {
+		this.subAudioLength = subAudioLength;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idAudio;
+		result = prime * result + subAudioIndex;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AudioTrack other = (AudioTrack) obj;
+		if (idAudio != other.idAudio)
+			return false;
+		if (subAudioIndex != other.subAudioIndex)
+			return false;
+		return true;
+	}
+	
 	
 }

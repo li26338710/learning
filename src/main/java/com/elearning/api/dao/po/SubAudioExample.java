@@ -165,136 +165,6 @@ public class SubAudioExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdSubTypeIsNull() {
-            addCriterion("ID_SUB_TYPE is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubTypeIsNotNull() {
-            addCriterion("ID_SUB_TYPE is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubTypeEqualTo(Integer value) {
-            addCriterion("ID_SUB_TYPE =", value, "idSubType");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubTypeNotEqualTo(Integer value) {
-            addCriterion("ID_SUB_TYPE <>", value, "idSubType");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubTypeGreaterThan(Integer value) {
-            addCriterion("ID_SUB_TYPE >", value, "idSubType");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubTypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ID_SUB_TYPE >=", value, "idSubType");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubTypeLessThan(Integer value) {
-            addCriterion("ID_SUB_TYPE <", value, "idSubType");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubTypeLessThanOrEqualTo(Integer value) {
-            addCriterion("ID_SUB_TYPE <=", value, "idSubType");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubTypeIn(List<Integer> values) {
-            addCriterion("ID_SUB_TYPE in", values, "idSubType");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubTypeNotIn(List<Integer> values) {
-            addCriterion("ID_SUB_TYPE not in", values, "idSubType");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubTypeBetween(Integer value1, Integer value2) {
-            addCriterion("ID_SUB_TYPE between", value1, value2, "idSubType");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubTypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("ID_SUB_TYPE not between", value1, value2, "idSubType");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleIsNull() {
-            addCriterion("ID_SUB_ROLE is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleIsNotNull() {
-            addCriterion("ID_SUB_ROLE is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleEqualTo(String value) {
-            addCriterion("ID_SUB_ROLE =", value, "idSubRole");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleNotEqualTo(String value) {
-            addCriterion("ID_SUB_ROLE <>", value, "idSubRole");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleGreaterThan(String value) {
-            addCriterion("ID_SUB_ROLE >", value, "idSubRole");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleGreaterThanOrEqualTo(String value) {
-            addCriterion("ID_SUB_ROLE >=", value, "idSubRole");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleLessThan(String value) {
-            addCriterion("ID_SUB_ROLE <", value, "idSubRole");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleLessThanOrEqualTo(String value) {
-            addCriterion("ID_SUB_ROLE <=", value, "idSubRole");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleLike(String value) {
-            addCriterion("ID_SUB_ROLE like", value, "idSubRole");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleNotLike(String value) {
-            addCriterion("ID_SUB_ROLE not like", value, "idSubRole");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleIn(List<String> values) {
-            addCriterion("ID_SUB_ROLE in", values, "idSubRole");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleNotIn(List<String> values) {
-            addCriterion("ID_SUB_ROLE not in", values, "idSubRole");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleBetween(String value1, String value2) {
-            addCriterion("ID_SUB_ROLE between", value1, value2, "idSubRole");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdSubRoleNotBetween(String value1, String value2) {
-            addCriterion("ID_SUB_ROLE not between", value1, value2, "idSubRole");
-            return (Criteria) this;
-        }
-
         public Criteria andIdAudioIsNull() {
             addCriterion("ID_AUDIO is null");
             return (Criteria) this;
@@ -355,123 +225,313 @@ public class SubAudioExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdSubIndexIsNull() {
-            addCriterion("ID_SUB_INDEX is null");
+        public Criteria andSubAudioTypeIsNull() {
+            addCriterion("SUB_AUDIO_TYPE is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubIndexIsNotNull() {
-            addCriterion("ID_SUB_INDEX is not null");
+        public Criteria andSubAudioTypeIsNotNull() {
+            addCriterion("SUB_AUDIO_TYPE is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubIndexEqualTo(Integer value) {
-            addCriterion("ID_SUB_INDEX =", value, "idSubIndex");
+        public Criteria andSubAudioTypeEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_TYPE =", value, "subAudioType");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubIndexNotEqualTo(Integer value) {
-            addCriterion("ID_SUB_INDEX <>", value, "idSubIndex");
+        public Criteria andSubAudioTypeNotEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_TYPE <>", value, "subAudioType");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubIndexGreaterThan(Integer value) {
-            addCriterion("ID_SUB_INDEX >", value, "idSubIndex");
+        public Criteria andSubAudioTypeGreaterThan(Integer value) {
+            addCriterion("SUB_AUDIO_TYPE >", value, "subAudioType");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubIndexGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ID_SUB_INDEX >=", value, "idSubIndex");
+        public Criteria andSubAudioTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_TYPE >=", value, "subAudioType");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubIndexLessThan(Integer value) {
-            addCriterion("ID_SUB_INDEX <", value, "idSubIndex");
+        public Criteria andSubAudioTypeLessThan(Integer value) {
+            addCriterion("SUB_AUDIO_TYPE <", value, "subAudioType");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubIndexLessThanOrEqualTo(Integer value) {
-            addCriterion("ID_SUB_INDEX <=", value, "idSubIndex");
+        public Criteria andSubAudioTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_TYPE <=", value, "subAudioType");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubIndexIn(List<Integer> values) {
-            addCriterion("ID_SUB_INDEX in", values, "idSubIndex");
+        public Criteria andSubAudioTypeIn(List<Integer> values) {
+            addCriterion("SUB_AUDIO_TYPE in", values, "subAudioType");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubIndexNotIn(List<Integer> values) {
-            addCriterion("ID_SUB_INDEX not in", values, "idSubIndex");
+        public Criteria andSubAudioTypeNotIn(List<Integer> values) {
+            addCriterion("SUB_AUDIO_TYPE not in", values, "subAudioType");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubIndexBetween(Integer value1, Integer value2) {
-            addCriterion("ID_SUB_INDEX between", value1, value2, "idSubIndex");
+        public Criteria andSubAudioTypeBetween(Integer value1, Integer value2) {
+            addCriterion("SUB_AUDIO_TYPE between", value1, value2, "subAudioType");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubIndexNotBetween(Integer value1, Integer value2) {
-            addCriterion("ID_SUB_INDEX not between", value1, value2, "idSubIndex");
+        public Criteria andSubAudioTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("SUB_AUDIO_TYPE not between", value1, value2, "subAudioType");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubLengthIsNull() {
-            addCriterion("ID_SUB_LENGTH is null");
+        public Criteria andSubAudioRoleIsNull() {
+            addCriterion("SUB_AUDIO_ROLE is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubLengthIsNotNull() {
-            addCriterion("ID_SUB_LENGTH is not null");
+        public Criteria andSubAudioRoleIsNotNull() {
+            addCriterion("SUB_AUDIO_ROLE is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubLengthEqualTo(Integer value) {
-            addCriterion("ID_SUB_LENGTH =", value, "idSubLength");
+        public Criteria andSubAudioRoleEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_ROLE =", value, "subAudioRole");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubLengthNotEqualTo(Integer value) {
-            addCriterion("ID_SUB_LENGTH <>", value, "idSubLength");
+        public Criteria andSubAudioRoleNotEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_ROLE <>", value, "subAudioRole");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubLengthGreaterThan(Integer value) {
-            addCriterion("ID_SUB_LENGTH >", value, "idSubLength");
+        public Criteria andSubAudioRoleGreaterThan(Integer value) {
+            addCriterion("SUB_AUDIO_ROLE >", value, "subAudioRole");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubLengthGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ID_SUB_LENGTH >=", value, "idSubLength");
+        public Criteria andSubAudioRoleGreaterThanOrEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_ROLE >=", value, "subAudioRole");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubLengthLessThan(Integer value) {
-            addCriterion("ID_SUB_LENGTH <", value, "idSubLength");
+        public Criteria andSubAudioRoleLessThan(Integer value) {
+            addCriterion("SUB_AUDIO_ROLE <", value, "subAudioRole");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubLengthLessThanOrEqualTo(Integer value) {
-            addCriterion("ID_SUB_LENGTH <=", value, "idSubLength");
+        public Criteria andSubAudioRoleLessThanOrEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_ROLE <=", value, "subAudioRole");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubLengthIn(List<Integer> values) {
-            addCriterion("ID_SUB_LENGTH in", values, "idSubLength");
+        public Criteria andSubAudioRoleIn(List<Integer> values) {
+            addCriterion("SUB_AUDIO_ROLE in", values, "subAudioRole");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubLengthNotIn(List<Integer> values) {
-            addCriterion("ID_SUB_LENGTH not in", values, "idSubLength");
+        public Criteria andSubAudioRoleNotIn(List<Integer> values) {
+            addCriterion("SUB_AUDIO_ROLE not in", values, "subAudioRole");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubLengthBetween(Integer value1, Integer value2) {
-            addCriterion("ID_SUB_LENGTH between", value1, value2, "idSubLength");
+        public Criteria andSubAudioRoleBetween(Integer value1, Integer value2) {
+            addCriterion("SUB_AUDIO_ROLE between", value1, value2, "subAudioRole");
             return (Criteria) this;
         }
 
-        public Criteria andIdSubLengthNotBetween(Integer value1, Integer value2) {
-            addCriterion("ID_SUB_LENGTH not between", value1, value2, "idSubLength");
+        public Criteria andSubAudioRoleNotBetween(Integer value1, Integer value2) {
+            addCriterion("SUB_AUDIO_ROLE not between", value1, value2, "subAudioRole");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentIsNull() {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentIsNotNull() {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentEqualTo(String value) {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT =", value, "subAudioRoleComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentNotEqualTo(String value) {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT <>", value, "subAudioRoleComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentGreaterThan(String value) {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT >", value, "subAudioRoleComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentGreaterThanOrEqualTo(String value) {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT >=", value, "subAudioRoleComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentLessThan(String value) {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT <", value, "subAudioRoleComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentLessThanOrEqualTo(String value) {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT <=", value, "subAudioRoleComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentLike(String value) {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT like", value, "subAudioRoleComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentNotLike(String value) {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT not like", value, "subAudioRoleComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentIn(List<String> values) {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT in", values, "subAudioRoleComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentNotIn(List<String> values) {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT not in", values, "subAudioRoleComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentBetween(String value1, String value2) {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT between", value1, value2, "subAudioRoleComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioRoleCommentNotBetween(String value1, String value2) {
+            addCriterion("SUB_AUDIO_ROLE_COMMENT not between", value1, value2, "subAudioRoleComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioIndexIsNull() {
+            addCriterion("SUB_AUDIO_INDEX is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioIndexIsNotNull() {
+            addCriterion("SUB_AUDIO_INDEX is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioIndexEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_INDEX =", value, "subAudioIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioIndexNotEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_INDEX <>", value, "subAudioIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioIndexGreaterThan(Integer value) {
+            addCriterion("SUB_AUDIO_INDEX >", value, "subAudioIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioIndexGreaterThanOrEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_INDEX >=", value, "subAudioIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioIndexLessThan(Integer value) {
+            addCriterion("SUB_AUDIO_INDEX <", value, "subAudioIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioIndexLessThanOrEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_INDEX <=", value, "subAudioIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioIndexIn(List<Integer> values) {
+            addCriterion("SUB_AUDIO_INDEX in", values, "subAudioIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioIndexNotIn(List<Integer> values) {
+            addCriterion("SUB_AUDIO_INDEX not in", values, "subAudioIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioIndexBetween(Integer value1, Integer value2) {
+            addCriterion("SUB_AUDIO_INDEX between", value1, value2, "subAudioIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioIndexNotBetween(Integer value1, Integer value2) {
+            addCriterion("SUB_AUDIO_INDEX not between", value1, value2, "subAudioIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioLengthIsNull() {
+            addCriterion("SUB_AUDIO_LENGTH is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioLengthIsNotNull() {
+            addCriterion("SUB_AUDIO_LENGTH is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioLengthEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_LENGTH =", value, "subAudioLength");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioLengthNotEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_LENGTH <>", value, "subAudioLength");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioLengthGreaterThan(Integer value) {
+            addCriterion("SUB_AUDIO_LENGTH >", value, "subAudioLength");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioLengthGreaterThanOrEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_LENGTH >=", value, "subAudioLength");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioLengthLessThan(Integer value) {
+            addCriterion("SUB_AUDIO_LENGTH <", value, "subAudioLength");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioLengthLessThanOrEqualTo(Integer value) {
+            addCriterion("SUB_AUDIO_LENGTH <=", value, "subAudioLength");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioLengthIn(List<Integer> values) {
+            addCriterion("SUB_AUDIO_LENGTH in", values, "subAudioLength");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioLengthNotIn(List<Integer> values) {
+            addCriterion("SUB_AUDIO_LENGTH not in", values, "subAudioLength");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioLengthBetween(Integer value1, Integer value2) {
+            addCriterion("SUB_AUDIO_LENGTH between", value1, value2, "subAudioLength");
+            return (Criteria) this;
+        }
+
+        public Criteria andSubAudioLengthNotBetween(Integer value1, Integer value2) {
+            addCriterion("SUB_AUDIO_LENGTH not between", value1, value2, "subAudioLength");
             return (Criteria) this;
         }
 

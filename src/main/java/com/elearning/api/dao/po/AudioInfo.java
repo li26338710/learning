@@ -6,6 +6,10 @@ import java.util.Map;
 public class AudioInfo {
 
 	private Integer idAudio;
+	
+	private Integer seqNo;
+	
+	private Map<String, Long> audioRole;
 
 	private List<AudioTrack> audioTrackList;
 	
@@ -36,12 +40,20 @@ public class AudioInfo {
 		this.audioRecordList = audioRecordList;
 	}
 
-//	public List<AudioTrack> getAudioRecordList() {
-//		return audioRecordList;
-//	}
-//
-//	public void setAudioRecordList(List<AudioTrack> audioRecordList) {
-//		this.audioRecordList = audioRecordList;
-//	}
-	
+	public Integer getSeqNo() {
+		return seqNo;
+	}
+
+	public void setSeqNo(Integer seqNo) {
+		this.seqNo = seqNo;
+	}
+
+	public Map<String, Long> getAudioRole() {
+		return audioRole;
+	}
+
+	public void setAudioRole(Map<String, Long> audioRole) {
+		this.audioRole = audioRole;
+	}
+
 }

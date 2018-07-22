@@ -408,14 +408,16 @@
 		AND a.id_source = #{idSource,jdbcType=INTEGER}
 		</if>
   </select>
+	
   <select id="getAudioInfo"  resultType="com.elearning.api.dao.po.AudioTrack" >
 	SELECT 
 	    a.ID_AUDIO as idAudio,
 	    suba.ID_SUB_AUDIO as idSubAudio,
-	    suba.ID_SUB_TYPE as idSubType,
-	    suba.ID_SUB_ROLE as idSubRole,
-	    suba.ID_SUB_INDEX as idSubIndex,
-	    suba.ID_SUB_LENGTH as idSubLength,
+	    suba.SUB_AUDIO_TYPE as subAudioType,
+	    suba.SUB_AUDIO_ROLE as subAudioRole,
+	    suba.SUB_AUDIO_ROLE_COMMENT as subAudioRoleComment,
+	    suba.SUB_AUDIO_INDEX as subAudioIndex,
+	    suba.SUB_AUDIO_LENGTH as subAudioLength,
 	    suba.A_FILE_PATH as rFilePath,
 	    suba.A_SIZE as rFileSize
 	FROM
@@ -426,17 +428,17 @@
 		AND a.ID_AUDIO = #{idAudio,jdbcType=INTEGER}
 		AND a.IS_ACTIVE = 1
 		AND suba.IS_ACTIVE = 1
-	ORDER BY suba.ID_SUB_INDEX
+	ORDER BY suba.SUB_AUDIO_INDEX
   </select>
   <select id="getRecordingInfo"  resultType="com.elearning.api.dao.po.AudioTrack" >
 	SELECT 
 		a.ID_AUDIO as idAudio,
-		suba.ID_SUB_AUDIO as idSubAudio,
-		suba.ID_SUB_TYPE as idSubType,
-		suba.ID_SUB_ROLE as idSubRole,
-		suba.ID_SUB_INDEX as idSubIndex,
-		suba.ID_SUB_LENGTH as idSubLength,
-		
+	    suba.ID_SUB_AUDIO as idSubAudio,
+	    suba.SUB_AUDIO_TYPE as subAudioType,
+	    suba.SUB_AUDIO_ROLE as subAudioRole,
+	    suba.SUB_AUDIO_ROLE_COMMENT as subAudioRoleComment,
+	    suba.SUB_AUDIO_INDEX as subAudioIndex,
+	    suba.SUB_AUDIO_LENGTH as subAudioLength,
 		r.R_SEQ_NO as rSeqNo,
 		r.R_FILE_PATH as rFilePath,
 		r.R_FILE_SIZE as rFileSize
@@ -453,7 +455,6 @@
 		AND suba.ID_SUB_AUDIO = r.ID_SUB_AUDIO
 		AND a.IS_ACTIVE = 1
 		AND wx.IS_ACTIVE = 1
-	ORDER BY r.r_SEQ_NO , suba.ID_SUB_INDEX
-  </select>
-    
+	ORDER BY r.r_SEQ_NO , suba.SUB_AUDIO_INDEX
+  </select> 
 </mapper>

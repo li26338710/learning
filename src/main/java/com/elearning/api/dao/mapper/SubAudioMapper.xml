@@ -3,11 +3,12 @@
 <mapper namespace="com.elearning.api.dao.SubAudioMapper" >
   <resultMap id="BaseResultMap" type="com.elearning.api.dao.po.SubAudio" >
     <id column="ID_SUB_AUDIO" property="idSubAudio" jdbcType="INTEGER" />
-    <result column="ID_SUB_TYPE" property="idSubType" jdbcType="INTEGER" />
-    <result column="ID_SUB_ROLE" property="idSubRole" jdbcType="VARCHAR" />
     <result column="ID_AUDIO" property="idAudio" jdbcType="INTEGER" />
-    <result column="ID_SUB_INDEX" property="idSubIndex" jdbcType="INTEGER" />
-    <result column="ID_SUB_LENGTH" property="idSubLength" jdbcType="INTEGER" />
+    <result column="SUB_AUDIO_TYPE" property="subAudioType" jdbcType="INTEGER" />
+    <result column="SUB_AUDIO_ROLE" property="subAudioRole" jdbcType="INTEGER" />
+    <result column="SUB_AUDIO_ROLE_COMMENT" property="subAudioRoleComment" jdbcType="VARCHAR" />
+    <result column="SUB_AUDIO_INDEX" property="subAudioIndex" jdbcType="INTEGER" />
+    <result column="SUB_AUDIO_LENGTH" property="subAudioLength" jdbcType="INTEGER" />
     <result column="A_FILE_PATH" property="aFilePath" jdbcType="VARCHAR" />
     <result column="A_SIZE" property="aSize" jdbcType="DOUBLE" />
     <result column="A_RECOMMEND" property="aRecommend" jdbcType="VARCHAR" />
@@ -76,8 +77,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ID_SUB_AUDIO, ID_SUB_TYPE, ID_SUB_ROLE, ID_AUDIO, ID_SUB_INDEX, ID_SUB_LENGTH, A_FILE_PATH, 
-    A_SIZE, A_RECOMMEND, CREATETIME, CREATEUSER, UPDATETIME, UPDATEUSER, IS_ACTIVE
+    ID_SUB_AUDIO, ID_AUDIO, SUB_AUDIO_TYPE, SUB_AUDIO_ROLE, SUB_AUDIO_ROLE_COMMENT, SUB_AUDIO_INDEX, 
+    SUB_AUDIO_LENGTH, A_FILE_PATH, A_SIZE, A_RECOMMEND, CREATETIME, CREATEUSER, UPDATETIME, 
+    UPDATEUSER, IS_ACTIVE
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.elearning.api.dao.po.SubAudioExample" >
     select
@@ -111,16 +113,18 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.elearning.api.dao.po.SubAudio" >
-    insert into t_sub_audio (ID_SUB_AUDIO, ID_SUB_TYPE, ID_SUB_ROLE, 
-      ID_AUDIO, ID_SUB_INDEX, ID_SUB_LENGTH, 
-      A_FILE_PATH, A_SIZE, A_RECOMMEND, 
-      CREATETIME, CREATEUSER, UPDATETIME, 
-      UPDATEUSER, IS_ACTIVE)
-    values (#{idSubAudio,jdbcType=INTEGER}, #{idSubType,jdbcType=INTEGER}, #{idSubRole,jdbcType=VARCHAR}, 
-      #{idAudio,jdbcType=INTEGER}, #{idSubIndex,jdbcType=INTEGER}, #{idSubLength,jdbcType=INTEGER}, 
-      #{aFilePath,jdbcType=VARCHAR}, #{aSize,jdbcType=DOUBLE}, #{aRecommend,jdbcType=VARCHAR}, 
-      #{createtime,jdbcType=TIMESTAMP}, #{createuser,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, 
-      #{updateuser,jdbcType=VARCHAR}, #{isActive,jdbcType=INTEGER})
+    insert into t_sub_audio (ID_SUB_AUDIO, ID_AUDIO, SUB_AUDIO_TYPE, 
+      SUB_AUDIO_ROLE, SUB_AUDIO_ROLE_COMMENT, SUB_AUDIO_INDEX, 
+      SUB_AUDIO_LENGTH, A_FILE_PATH, A_SIZE, 
+      A_RECOMMEND, CREATETIME, CREATEUSER, 
+      UPDATETIME, UPDATEUSER, IS_ACTIVE
+      )
+    values (#{idSubAudio,jdbcType=INTEGER}, #{idAudio,jdbcType=INTEGER}, #{subAudioType,jdbcType=INTEGER}, 
+      #{subAudioRole,jdbcType=INTEGER}, #{subAudioRoleComment,jdbcType=VARCHAR}, #{subAudioIndex,jdbcType=INTEGER}, 
+      #{subAudioLength,jdbcType=INTEGER}, #{aFilePath,jdbcType=VARCHAR}, #{aSize,jdbcType=DOUBLE}, 
+      #{aRecommend,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{createuser,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{updateuser,jdbcType=VARCHAR}, #{isActive,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.elearning.api.dao.po.SubAudio" >
     insert into t_sub_audio
@@ -128,20 +132,23 @@
       <if test="idSubAudio != null" >
         ID_SUB_AUDIO,
       </if>
-      <if test="idSubType != null" >
-        ID_SUB_TYPE,
-      </if>
-      <if test="idSubRole != null" >
-        ID_SUB_ROLE,
-      </if>
       <if test="idAudio != null" >
         ID_AUDIO,
       </if>
-      <if test="idSubIndex != null" >
-        ID_SUB_INDEX,
+      <if test="subAudioType != null" >
+        SUB_AUDIO_TYPE,
       </if>
-      <if test="idSubLength != null" >
-        ID_SUB_LENGTH,
+      <if test="subAudioRole != null" >
+        SUB_AUDIO_ROLE,
+      </if>
+      <if test="subAudioRoleComment != null" >
+        SUB_AUDIO_ROLE_COMMENT,
+      </if>
+      <if test="subAudioIndex != null" >
+        SUB_AUDIO_INDEX,
+      </if>
+      <if test="subAudioLength != null" >
+        SUB_AUDIO_LENGTH,
       </if>
       <if test="aFilePath != null" >
         A_FILE_PATH,
@@ -172,20 +179,23 @@
       <if test="idSubAudio != null" >
         #{idSubAudio,jdbcType=INTEGER},
       </if>
-      <if test="idSubType != null" >
-        #{idSubType,jdbcType=INTEGER},
-      </if>
-      <if test="idSubRole != null" >
-        #{idSubRole,jdbcType=VARCHAR},
-      </if>
       <if test="idAudio != null" >
         #{idAudio,jdbcType=INTEGER},
       </if>
-      <if test="idSubIndex != null" >
-        #{idSubIndex,jdbcType=INTEGER},
+      <if test="subAudioType != null" >
+        #{subAudioType,jdbcType=INTEGER},
       </if>
-      <if test="idSubLength != null" >
-        #{idSubLength,jdbcType=INTEGER},
+      <if test="subAudioRole != null" >
+        #{subAudioRole,jdbcType=INTEGER},
+      </if>
+      <if test="subAudioRoleComment != null" >
+        #{subAudioRoleComment,jdbcType=VARCHAR},
+      </if>
+      <if test="subAudioIndex != null" >
+        #{subAudioIndex,jdbcType=INTEGER},
+      </if>
+      <if test="subAudioLength != null" >
+        #{subAudioLength,jdbcType=INTEGER},
       </if>
       <if test="aFilePath != null" >
         #{aFilePath,jdbcType=VARCHAR},
@@ -225,20 +235,23 @@
       <if test="record.idSubAudio != null" >
         ID_SUB_AUDIO = #{record.idSubAudio,jdbcType=INTEGER},
       </if>
-      <if test="record.idSubType != null" >
-        ID_SUB_TYPE = #{record.idSubType,jdbcType=INTEGER},
-      </if>
-      <if test="record.idSubRole != null" >
-        ID_SUB_ROLE = #{record.idSubRole,jdbcType=VARCHAR},
-      </if>
       <if test="record.idAudio != null" >
         ID_AUDIO = #{record.idAudio,jdbcType=INTEGER},
       </if>
-      <if test="record.idSubIndex != null" >
-        ID_SUB_INDEX = #{record.idSubIndex,jdbcType=INTEGER},
+      <if test="record.subAudioType != null" >
+        SUB_AUDIO_TYPE = #{record.subAudioType,jdbcType=INTEGER},
       </if>
-      <if test="record.idSubLength != null" >
-        ID_SUB_LENGTH = #{record.idSubLength,jdbcType=INTEGER},
+      <if test="record.subAudioRole != null" >
+        SUB_AUDIO_ROLE = #{record.subAudioRole,jdbcType=INTEGER},
+      </if>
+      <if test="record.subAudioRoleComment != null" >
+        SUB_AUDIO_ROLE_COMMENT = #{record.subAudioRoleComment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subAudioIndex != null" >
+        SUB_AUDIO_INDEX = #{record.subAudioIndex,jdbcType=INTEGER},
+      </if>
+      <if test="record.subAudioLength != null" >
+        SUB_AUDIO_LENGTH = #{record.subAudioLength,jdbcType=INTEGER},
       </if>
       <if test="record.aFilePath != null" >
         A_FILE_PATH = #{record.aFilePath,jdbcType=VARCHAR},
@@ -272,11 +285,12 @@
   <update id="updateByExample" parameterType="map" >
     update t_sub_audio
     set ID_SUB_AUDIO = #{record.idSubAudio,jdbcType=INTEGER},
-      ID_SUB_TYPE = #{record.idSubType,jdbcType=INTEGER},
-      ID_SUB_ROLE = #{record.idSubRole,jdbcType=VARCHAR},
       ID_AUDIO = #{record.idAudio,jdbcType=INTEGER},
-      ID_SUB_INDEX = #{record.idSubIndex,jdbcType=INTEGER},
-      ID_SUB_LENGTH = #{record.idSubLength,jdbcType=INTEGER},
+      SUB_AUDIO_TYPE = #{record.subAudioType,jdbcType=INTEGER},
+      SUB_AUDIO_ROLE = #{record.subAudioRole,jdbcType=INTEGER},
+      SUB_AUDIO_ROLE_COMMENT = #{record.subAudioRoleComment,jdbcType=VARCHAR},
+      SUB_AUDIO_INDEX = #{record.subAudioIndex,jdbcType=INTEGER},
+      SUB_AUDIO_LENGTH = #{record.subAudioLength,jdbcType=INTEGER},
       A_FILE_PATH = #{record.aFilePath,jdbcType=VARCHAR},
       A_SIZE = #{record.aSize,jdbcType=DOUBLE},
       A_RECOMMEND = #{record.aRecommend,jdbcType=VARCHAR},
@@ -292,20 +306,23 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.elearning.api.dao.po.SubAudio" >
     update t_sub_audio
     <set >
-      <if test="idSubType != null" >
-        ID_SUB_TYPE = #{idSubType,jdbcType=INTEGER},
-      </if>
-      <if test="idSubRole != null" >
-        ID_SUB_ROLE = #{idSubRole,jdbcType=VARCHAR},
-      </if>
       <if test="idAudio != null" >
         ID_AUDIO = #{idAudio,jdbcType=INTEGER},
       </if>
-      <if test="idSubIndex != null" >
-        ID_SUB_INDEX = #{idSubIndex,jdbcType=INTEGER},
+      <if test="subAudioType != null" >
+        SUB_AUDIO_TYPE = #{subAudioType,jdbcType=INTEGER},
       </if>
-      <if test="idSubLength != null" >
-        ID_SUB_LENGTH = #{idSubLength,jdbcType=INTEGER},
+      <if test="subAudioRole != null" >
+        SUB_AUDIO_ROLE = #{subAudioRole,jdbcType=INTEGER},
+      </if>
+      <if test="subAudioRoleComment != null" >
+        SUB_AUDIO_ROLE_COMMENT = #{subAudioRoleComment,jdbcType=VARCHAR},
+      </if>
+      <if test="subAudioIndex != null" >
+        SUB_AUDIO_INDEX = #{subAudioIndex,jdbcType=INTEGER},
+      </if>
+      <if test="subAudioLength != null" >
+        SUB_AUDIO_LENGTH = #{subAudioLength,jdbcType=INTEGER},
       </if>
       <if test="aFilePath != null" >
         A_FILE_PATH = #{aFilePath,jdbcType=VARCHAR},
@@ -336,11 +353,12 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.elearning.api.dao.po.SubAudio" >
     update t_sub_audio
-    set ID_SUB_TYPE = #{idSubType,jdbcType=INTEGER},
-      ID_SUB_ROLE = #{idSubRole,jdbcType=VARCHAR},
-      ID_AUDIO = #{idAudio,jdbcType=INTEGER},
-      ID_SUB_INDEX = #{idSubIndex,jdbcType=INTEGER},
-      ID_SUB_LENGTH = #{idSubLength,jdbcType=INTEGER},
+    set ID_AUDIO = #{idAudio,jdbcType=INTEGER},
+      SUB_AUDIO_TYPE = #{subAudioType,jdbcType=INTEGER},
+      SUB_AUDIO_ROLE = #{subAudioRole,jdbcType=INTEGER},
+      SUB_AUDIO_ROLE_COMMENT = #{subAudioRoleComment,jdbcType=VARCHAR},
+      SUB_AUDIO_INDEX = #{subAudioIndex,jdbcType=INTEGER},
+      SUB_AUDIO_LENGTH = #{subAudioLength,jdbcType=INTEGER},
       A_FILE_PATH = #{aFilePath,jdbcType=VARCHAR},
       A_SIZE = #{aSize,jdbcType=DOUBLE},
       A_RECOMMEND = #{aRecommend,jdbcType=VARCHAR},

@@ -7,16 +7,21 @@ public class RecorderRequestBean {
 	private String province;
 	private String city;
 	private String gender;
+	private String seqNo;
+	private String idSubAudio;
 	
-	public RecorderRequestBean(String openId, String nickname, String province, String city, String gender) {
+	
+	public RecorderRequestBean(String openId, String nickname, String province, String city, String gender,
+			String seqNo, String idSubAudio) {
 		super();
 		this.openId = openId;
 		this.nickname = nickname;
 		this.province = province;
 		this.city = city;
 		this.gender = gender;
+		this.seqNo = seqNo;
+		this.idSubAudio = idSubAudio;
 	}
-	
 	public String getOpenId() {
 		return openId;
 	}
@@ -46,6 +51,22 @@ public class RecorderRequestBean {
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getSeqNo() {
+		return seqNo;
+	}
+
+	public void setSeqNo(String seqNo) {
+		this.seqNo = seqNo;
+	}
+
+	public String getIdSubAudio() {
+		return idSubAudio;
+	}
+
+	public void setIdSubAudio(String idSubAudio) {
+		this.idSubAudio = idSubAudio;
 	}
 	
 }

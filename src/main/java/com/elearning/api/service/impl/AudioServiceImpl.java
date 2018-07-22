@@ -1,7 +1,9 @@
 package com.elearning.api.service.impl;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +49,20 @@ public class AudioServiceImpl implements AudioService{
 		
 		Map<Integer, List<AudioTrack>> audioRecordLists = audioRecordList.stream().collect(Collectors.groupingBy(AudioTrack::getrSeqNo));
 		
+		for (List<AudioTrack> tmpList : audioRecordLists.values()) {
+
+			audioTrackList.stream().forEach(p -> {
+				if (!tmpList.contains(p)) {
+					tmpList.add(p.getSubAudioIndex(), p);
+				}
+			});
+		}
+		Map<String, Long> roleInfo = audioTrackList.stream().collect(Collectors.groupingBy(AudioTrack::getSubAudioRole,Collectors.counting()));
+		Optional<AudioTrack> seqNoMaxTrack=audioRecordList.stream().collect(Collectors.maxBy(Comparator.comparing(AudioTrack::getrSeqNo)));
+		
 		audioInfo.setIdAudio(id);
+		audioInfo.setAudioRole(roleInfo);
+		audioInfo.setSeqNo(seqNoMaxTrack.get().getrSeqNo());
 		audioInfo.setAudioTrackList(audioTrackList);
 		audioInfo.setAudioRecordList(audioRecordLists);
 		
