@@ -27,6 +27,12 @@ repositories {
 	mavenCentral()
 }
 
+processResources {
+	from('src/main/java') {
+    include '**/*.xml'
+    }
+} 
+
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web'){
 		exclude module: 'spring-boot-starter-logging'
