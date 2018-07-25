@@ -2,9 +2,11 @@ package com.elearning.api.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +18,9 @@ import com.elearning.api.web.controller.requestbean.RecorderRequestBean;
 
 @Controller
 @RequestMapping( "/recorder" )
-public class RecordFileUploadController {
+public class RecorderController {
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass()); 
 	
 	public static String FILE_TMP_PATH = "\\resource\\tmp";
 	
@@ -40,7 +44,7 @@ public class RecordFileUploadController {
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
     //public String upload(HttpServletRequest request , @RequestParam("file") MultipartFile file, @RequestParam("userInfo") String userInfo) {
-    public String upload(HttpServletRequest request ,
+    public int upload(HttpServletRequest request ,
     		@RequestParam("file") MultipartFile file, 
     		@RequestParam("openId") String openId, 
     		@RequestParam("nickname") String nickname,
@@ -53,16 +57,23 @@ public class RecordFileUploadController {
     		
     		RecorderRequestBean requestBean = new RecorderRequestBean(openId , nickname , province,city , gender , seqNo , idSubAudio);
     		
-    		String result = recorderService.uploadRecordingFiles(file , requestBean);
+    		int result = recorderService.uploadRecordingFiles(file , requestBean);
     		
 			return result;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return 0;
     }
     
+    @RequestMapping(value = "/delete/{seqno}", method = RequestMethod.GET)
+    public int delete(@PathVariable Integer seqno,@RequestParam("openid") String openid) {
+    		
+    	int result = recorderService.deleteRecorder(seqno , openid);
+    		
+		return result;
+    }
 //    @RequestMapping(value = "/upload", method = RequestMethod.POST)
 //    @ResponseBody
 //    //public String upload(HttpServletRequest request , @RequestParam("file") MultipartFile file, @RequestParam("userInfo") String userInfo) {

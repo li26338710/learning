@@ -1,10 +1,15 @@
 package com.elearning.api.dao;
 
-import com.elearning.api.dao.po.Recording;
-import com.elearning.api.dao.po.RecordingExample;
+import java.util.Date;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.elearning.api.dao.po.Recording;
+import com.elearning.api.dao.po.RecordingExample;
+
+@Mapper
 public interface RecordingMapper {
     int countByExample(RecordingExample example);
 
@@ -27,4 +32,6 @@ public interface RecordingMapper {
     int updateByPrimaryKeySelective(Recording record);
 
     int updateByPrimaryKey(Recording record);
+
+	int deleteRecorderBySeqno(@Param("rSeqNo") Integer rSeqNo, @Param("uOpenid") String uOpenid ,  @Param("updatetime") Date updatetime, @Param("updateuser") String updateuser);
 }

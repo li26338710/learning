@@ -3,8 +3,11 @@ package com.elearning.api.dao;
 import com.elearning.api.dao.po.WxUser;
 import com.elearning.api.dao.po.WxUserExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface WxUserMapper {
     int countByExample(WxUserExample example);
 
@@ -27,4 +30,8 @@ public interface WxUserMapper {
     int updateByPrimaryKeySelective(WxUser record);
 
     int updateByPrimaryKey(WxUser record);
+    
+    int checkExisted(@Param("uOpenid") String uOpenid);
+    
+    int updateUser(@Param("record") WxUser record);
 }

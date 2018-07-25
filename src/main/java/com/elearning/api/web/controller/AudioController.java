@@ -31,7 +31,6 @@ public class AudioController {
 	 @RequestMapping( "/list/{categoryId}" )
      public List<Audio> getAudioByCategory(@PathVariable Integer categoryId){
 		 logger.debug("getAudioByCategory Start");
-		 
 		 logger.debug("getAudioByCategory categoryId:" + categoryId);
 		 
         return audioService.getAudio(categoryId);
@@ -41,7 +40,6 @@ public class AudioController {
      public AudioInfo getAudioById(@PathVariable Integer id , @PathVariable Integer mode ,@RequestParam("openid") String openid ){
 		 
 		 logger.debug("getAudioById Start");
-		 
 		 logger.debug("getAudioById ID:" + id);
 		 logger.debug("getAudioById mode:" + mode);
 		 logger.debug("getAudioById openid:" + openid);

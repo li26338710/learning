@@ -6,17 +6,19 @@ import java.util.Random;
 
 import org.springframework.util.ResourceUtils;
 
+import com.elearning.api.common.constatns.CommonConstant;
+
 public class CommonUtils {
 	
-	public static String SLASH = "/";
 
 	public static String getTempFilePath(String filename) throws Exception {
 		
 		String nowdate = DateUtils.dateToString(new Date());
 		
-		FileUtils.newDir(getContextPath() + SLASH + nowdate);
+		FileUtils.newDir(CommonConstant.RECORDING_FILE_PATH + nowdate);
 		
-		return getContextPath() + SLASH + nowdate + SLASH + filename;
+		// return CommonConstant.RECORDING_FILE_PATH + nowdate + CommonConstant.SLASH + filename;
+		return CommonConstant.SLASH + nowdate + CommonConstant.SLASH + filename;
 	}
 	
 	public static String getContextPath(){

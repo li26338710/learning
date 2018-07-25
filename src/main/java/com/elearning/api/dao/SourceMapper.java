@@ -3,8 +3,11 @@ package com.elearning.api.dao;
 import com.elearning.api.dao.po.Source;
 import com.elearning.api.dao.po.SourceExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface SourceMapper {
     int countByExample(SourceExample example);
 
