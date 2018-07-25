@@ -3,8 +3,11 @@ package com.elearning.api.dao;
 import com.elearning.api.dao.po.Category;
 import com.elearning.api.dao.po.CategoryExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface CategoryMapper {
     int countByExample(CategoryExample example);
 

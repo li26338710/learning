@@ -122,6 +122,9 @@
       #{isActive,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.elearning.api.dao.po.WxUser" >
+ 	<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="idWxuser">
+		SELECT LAST_INSERT_ID() AS idWxuser
+	</selectKey>
     insert into t_wxuser
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="idWxuser != null" >
@@ -335,5 +338,29 @@
       UPDATEUSER = #{updateuser,jdbcType=VARCHAR},
       IS_ACTIVE = #{isActive,jdbcType=INTEGER}
     where ID_WXUSER = #{idWxuser,jdbcType=INTEGER}
+  </update>
+  <select id="checkExisted" >
+  SELECT COUNT(*) FROM T_WXUSER 
+	WHERE 	U_OPENID= #{uOpenid,jdbcType=VARCHAR}
+		AND IS_ACTIVE = 1
+  </select>
+  <update id="updateUser" parameterType="com.elearning.api.dao.po.WxUser" >
+   <selectKey keyProperty='idWxuser' resultType='int' order='BEFORE'>
+            SELECT
+            (select idWxuser FROM t_wxuser Where
+             U_OPENID = #{uOpenid,jdbcType=INTEGER} AND IS_ACTIVE = 1 ) as idWxuser
+            from DUAL
+  </selectKey>
+    update t_wxuser
+    set U_OPENID = #{uOpenid,jdbcType=VARCHAR},
+      U_NICKNAME = #{uNickname,jdbcType=VARCHAR},
+      U_PROVINCE = #{uProvince,jdbcType=VARCHAR},
+      U_COUNTRY = #{uCountry,jdbcType=VARCHAR},
+      U_CITY = #{uCity,jdbcType=VARCHAR},
+      U_AVATARURL = #{uAvatarurl,jdbcType=VARCHAR},
+      U_GENDER = #{uGender,jdbcType=INTEGER},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      UPDATEUSER = #{updateuser,jdbcType=VARCHAR}
+    where U_OPENID = #{uOpenid,jdbcType=INTEGER} AND IS_ACTIVE = 1
   </update>
 </mapper>

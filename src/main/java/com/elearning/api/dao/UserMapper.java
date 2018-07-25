@@ -3,8 +3,11 @@ package com.elearning.api.dao;
 import com.elearning.api.dao.po.User;
 import com.elearning.api.dao.po.UserExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface UserMapper {
     int countByExample(UserExample example);
 

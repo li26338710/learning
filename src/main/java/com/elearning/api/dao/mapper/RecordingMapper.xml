@@ -351,5 +351,13 @@
       IS_ACTIVE = #{isActive,jdbcType=INTEGER}
     where ID_RECORDING = #{idRecording,jdbcType=INTEGER}
   </update>
-
+	<update id="deleteRecorderBySeqno">
+		update t_recording
+		set IS_ACTIVE = 0,
+      		UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      		UPDATEUSER = #{updateuser,jdbcType=VARCHAR},
+		where R_SEQ_NO = #{rSeqNo,jdbcType=INTEGER}
+		  and ID_WXUSER in (select ID_WXUSER from t_wxuser where U_OPENID = #{uOpenid,jdbcType=INTEGER} AND IS_ACTIVE = 1)
+		  and IS_ACTIVE = 1
+	</update>
 </mapper>
