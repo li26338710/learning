@@ -6,15 +6,18 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.elearning.api.common.constatns.CommonConstant;
+
 public class FileUtils {
 	
-    public static String upload(
-    		@RequestParam("file") MultipartFile file 
-    		
-    		) throws Exception {
+	private static Logger logger = LoggerFactory.getLogger(FileUtils.class); 
+	
+    public static String upload( @RequestParam("file") MultipartFile file ) throws Exception {
     	String filePath = "";
         if (!file.isEmpty()) {
             try {
@@ -22,8 +25,10 @@ public class FileUtils {
                 // 实际项目中，文件需要输出到指定位置，需要在增加代码处理。
                 // 还有关于文件格式限制、文件大小限制，详见：中配置。
             	filePath = CommonUtils.getTempFilePath(CommonUtils.randomString(16)+".mp3");
-                BufferedOutputStream out = new BufferedOutputStream(
-                        new FileOutputStream(new File(filePath)));
+            	
+                BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(new File(CommonConstant.STATIC_RESOURCE_PATH + filePath)));
+                logger.debug("file path : {}", CommonConstant.STATIC_RESOURCE_PATH + filePath);
+                
                 out.write(file.getBytes());
                 out.flush();
                 out.close();
@@ -44,6 +49,7 @@ public class FileUtils {
      * 新建目录 
      */  
     public static boolean newDir(String path) throws Exception {  
+    	logger.debug("create folder : {}", path);
     	File file = new File(path);
         
         return file.mkdirs();//创建目录  

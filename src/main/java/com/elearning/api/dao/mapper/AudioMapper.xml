@@ -418,6 +418,7 @@
 	    suba.SUB_AUDIO_ROLE_COMMENT as subAudioRoleComment,
 	    suba.SUB_AUDIO_INDEX as subAudioIndex,
 	    suba.SUB_AUDIO_LENGTH as subAudioLength,
+	    suba.SUB_AUDIO_LRC as subAudioLrc,
 	    suba.A_FILE_PATH as rFilePath,
 	    suba.A_SIZE as rFileSize
 	FROM
@@ -439,6 +440,7 @@
 	    suba.SUB_AUDIO_ROLE_COMMENT as subAudioRoleComment,
 	    suba.SUB_AUDIO_INDEX as subAudioIndex,
 	    suba.SUB_AUDIO_LENGTH as subAudioLength,
+	    suba.SUB_AUDIO_LRC as subAudioLrc,
 		r.R_SEQ_NO as rSeqNo,
 		r.R_FILE_PATH as rFilePath,
 		r.R_FILE_SIZE as rFileSize

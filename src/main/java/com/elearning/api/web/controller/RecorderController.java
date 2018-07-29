@@ -1,5 +1,7 @@
 package com.elearning.api.web.controller;
 
+import java.net.URLDecoder;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -54,8 +56,17 @@ public class RecorderController {
     		@RequestParam("seqno") String seqNo,
     		@RequestParam("idsubaudio") String idSubAudio) {
     	try {
+    		openId = URLDecoder.decode(openId,"utf-8");
+    		nickname  = URLDecoder.decode(nickname,"utf-8");
+    		province = URLDecoder.decode(province,"utf-8");
+    		city = URLDecoder.decode(city,"utf-8");
+    		gender = URLDecoder.decode(gender,"utf-8");
+    		seqNo = URLDecoder.decode(seqNo,"utf-8");
+    		idSubAudio = URLDecoder.decode(idSubAudio,"utf-8");
     		
-    		RecorderRequestBean requestBean = new RecorderRequestBean(openId , nickname , province,city , gender , seqNo , idSubAudio);
+    		logger.debug("update Controller {} , {} ,{} ,{} ,{} ,{} ,{}", 
+    				openId , nickname, province ,city , gender , seqNo , idSubAudio);
+    		RecorderRequestBean requestBean = new RecorderRequestBean(openId , nickname , province ,city , gender , seqNo , idSubAudio);
     		
     		int result = recorderService.uploadRecordingFiles(file , requestBean);
     		

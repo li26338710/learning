@@ -15,10 +15,10 @@ public class CommonUtils {
 		
 		String nowdate = DateUtils.dateToString(new Date());
 		
-		FileUtils.newDir(CommonConstant.RECORDING_FILE_PATH + nowdate);
+		FileUtils.newDir(CommonConstant.STATIC_RESOURCE_PATH + CommonConstant.RECORDING_FILE_PATH + CommonConstant.SLASH + nowdate);
 		
 		// return CommonConstant.RECORDING_FILE_PATH + nowdate + CommonConstant.SLASH + filename;
-		return CommonConstant.SLASH + nowdate + CommonConstant.SLASH + filename;
+		return CommonConstant.RECORDING_FILE_PATH + CommonConstant.SLASH + nowdate + CommonConstant.SLASH + filename;
 	}
 	
 	public static String getContextPath(){

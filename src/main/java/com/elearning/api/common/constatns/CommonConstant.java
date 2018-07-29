@@ -4,9 +4,9 @@ public class CommonConstant {
 	
 	public static String SLASH = "/";
 
-	public static String STATIC_RESOURCE_PATH="file:/usr/local/elearning/";
+	public static String STATIC_RESOURCE_PATH="/usr/local/elearning";
 	
-	public static String RECORDING_FILE_PATH = STATIC_RESOURCE_PATH + "recording" + SLASH;
+	public static String RECORDING_FILE_PATH = SLASH + "recording";
 	
 	public static String USER_NAME = "admin";
 }

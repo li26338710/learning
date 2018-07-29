@@ -36,6 +36,8 @@ public class RecorderServiceImpl implements RecorderService{
 		
 		String result = FileUtils.upload(file);
 		
+		logger.debug("Upload result. {} ", result);
+		
 		if(StringUtils.isNullOrEmpty(result)) {
 			return updateResult;
 		}
@@ -43,7 +45,7 @@ public class RecorderServiceImpl implements RecorderService{
 		int existed = wxUserDao.checkExisted(requestBean.getOpenId());
 		WxUser user = createWxUserBean(requestBean);
 		
-		
+		logger.debug("User is existed. {} ", existed);
 		
 		if(existed > 0) {
 			updateResult = wxUserDao.updateUser(user);
@@ -51,11 +53,15 @@ public class RecorderServiceImpl implements RecorderService{
 			updateResult = wxUserDao.insertSelective(user);
 		}
 		
+		logger.debug("User update result. {} ", updateResult);
+		
 		//TODO: update login history
 		
 		//TODO: Update recording info to DB
 		Recording record = createRecordBean(requestBean , user , result);
 		updateResult = recordingDao.insertSelective(record);
+		
+		logger.debug("File info save to DB result. {} ,nickname:{} , seqno:{}", updateResult , requestBean.getNickname() , requestBean.getSeqNo());
 		
 		return updateResult;
 	}
@@ -73,7 +79,7 @@ public class RecorderServiceImpl implements RecorderService{
 		record.setIdSubAudio(Integer.parseInt(requestBean.getIdSubAudio()));
 		record.setIdWxuser(user.getIdWxuser());
 		record.setrFilePath(result);
-		
+		record.setrRecordTime(new Date());
 		record.setCreatetime(new Date());
 		record.setUpdatetime(new Date());
 		record.setCreateuser(CommonConstant.USER_NAME);

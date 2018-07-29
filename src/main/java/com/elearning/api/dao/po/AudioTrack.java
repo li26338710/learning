@@ -9,6 +9,7 @@ public class AudioTrack {
 	private String subAudioRoleComment;
 	private int subAudioIndex;
 	private int subAudioLength;
+	private String subAudioLrc;
 	private String rFilePath;
 	private String rFileSize;
 	private int rSeqNo;
@@ -73,6 +74,13 @@ public class AudioTrack {
 	}
 	public void setSubAudioLength(int subAudioLength) {
 		this.subAudioLength = subAudioLength;
+	}
+	
+	public String getSubAudioLrc() {
+		return subAudioLrc;
+	}
+	public void setSubAudioLrc(String subAudioLrc) {
+		this.subAudioLrc = subAudioLrc;
 	}
 	@Override
 	public int hashCode() {

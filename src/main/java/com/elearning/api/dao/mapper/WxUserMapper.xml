@@ -339,28 +339,28 @@
       IS_ACTIVE = #{isActive,jdbcType=INTEGER}
     where ID_WXUSER = #{idWxuser,jdbcType=INTEGER}
   </update>
-  <select id="checkExisted" >
-  SELECT COUNT(*) FROM T_WXUSER 
+  <select id="checkExisted" resultType="java.lang.Integer">
+  SELECT COUNT(*) FROM t_wxuser 
 	WHERE 	U_OPENID= #{uOpenid,jdbcType=VARCHAR}
 		AND IS_ACTIVE = 1
   </select>
   <update id="updateUser" parameterType="com.elearning.api.dao.po.WxUser" >
-   <selectKey keyProperty='idWxuser' resultType='int' order='BEFORE'>
-            SELECT
-            (select idWxuser FROM t_wxuser Where
-             U_OPENID = #{uOpenid,jdbcType=INTEGER} AND IS_ACTIVE = 1 ) as idWxuser
-            from DUAL
-  </selectKey>
+   <selectKey keyProperty="record.idWxuser" resultType="java.lang.Integer" order="BEFORE">
+        SELECT
+        (select id_Wxuser FROM t_wxuser Where
+         U_OPENID = #{record.uOpenid,jdbcType=VARCHAR} AND IS_ACTIVE = 1 ) as idWxuser
+        from DUAL
+   </selectKey>
     update t_wxuser
-    set U_OPENID = #{uOpenid,jdbcType=VARCHAR},
-      U_NICKNAME = #{uNickname,jdbcType=VARCHAR},
-      U_PROVINCE = #{uProvince,jdbcType=VARCHAR},
-      U_COUNTRY = #{uCountry,jdbcType=VARCHAR},
-      U_CITY = #{uCity,jdbcType=VARCHAR},
-      U_AVATARURL = #{uAvatarurl,jdbcType=VARCHAR},
-      U_GENDER = #{uGender,jdbcType=INTEGER},
-      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
-      UPDATEUSER = #{updateuser,jdbcType=VARCHAR}
-    where U_OPENID = #{uOpenid,jdbcType=INTEGER} AND IS_ACTIVE = 1
+    set U_OPENID = #{record.uOpenid,jdbcType=VARCHAR},
+      U_NICKNAME = #{record.uNickname,jdbcType=VARCHAR},
+      U_PROVINCE = #{record.uProvince,jdbcType=VARCHAR},
+      U_COUNTRY = #{record.uCountry,jdbcType=VARCHAR},
+      U_CITY = #{record.uCity,jdbcType=VARCHAR},
+      U_AVATARURL = #{record.uAvatarurl,jdbcType=VARCHAR},
+      U_GENDER = #{record.uGender,jdbcType=INTEGER},
+      UPDATETIME = #{record.updatetime,jdbcType=TIMESTAMP},
+      UPDATEUSER = #{record.updateuser,jdbcType=VARCHAR}
+    where U_OPENID = #{record.uOpenid,jdbcType=VARCHAR} AND IS_ACTIVE = 1
   </update>
 </mapper>
